@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Hue",
+        "repositoryURL": "git@github.com:zenangst/Hue.git",
+        "state": {
+          "branch": null,
+          "revision": "b9d920cee4ba795fefb828d130744eee1e3d2feb",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "URLImage",
+        "repositoryURL": "git@github.com:dmytro-anokhin/url-image.git",
+        "state": {
+          "branch": null,
+          "revision": "d0ee03498e743c0377a8b3211ce8da2e20be1bac",
+          "version": "0.9.18"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
