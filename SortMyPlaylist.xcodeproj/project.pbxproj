@@ -3,16 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3AE1C724CC4CA500A65753 /* TrackPreviewPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */; };
+		5D3AE1CD24CD95A200A65753 /* PlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3AE1CC24CD95A200A65753 /* PlaylistModel.swift */; };
+		5D58BBD124BB2B110019E1B8 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58BBD024BB2B110019E1B8 /* Spotify.swift */; };
+		5D58BBD424BB35A30019E1B8 /* Hue in Frameworks */ = {isa = PBXBuildFile; productRef = 5D58BBD324BB35A30019E1B8 /* Hue */; };
+		5D58BBD824BB4E190019E1B8 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58BBD724BB4E190019E1B8 /* TrackListView.swift */; };
+		5D58BBDA24BB6AA40019E1B8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58BBD924BB6AA40019E1B8 /* Color+Extension.swift */; };
+		5D8CC59724C2F2B700361C21 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CC59624C2F2B700361C21 /* CGPoint+Extensions.swift */; };
+		5D8CC59924C2FB6E00361C21 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CC59824C2FB6E00361C21 /* Collection+Extensions.swift */; };
 		5D9307F324B9CB000075AD79 /* SortMyPlaylistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9307F224B9CB000075AD79 /* SortMyPlaylistApp.swift */; };
 		5D9307F524B9CB000075AD79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9307F424B9CB000075AD79 /* ContentView.swift */; };
 		5D9307F724B9CB020075AD79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D9307F624B9CB020075AD79 /* Assets.xcassets */; };
 		5D9307FA24B9CB020075AD79 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D9307F924B9CB020075AD79 /* Preview Assets.xcassets */; };
 		5D93080524B9CB020075AD79 /* SortMyPlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93080424B9CB020075AD79 /* SortMyPlaylistTests.swift */; };
 		5D93081024B9CB020075AD79 /* SortMyPlaylistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93080F24B9CB020075AD79 /* SortMyPlaylistUITests.swift */; };
+		5D93081E24B9CB1D0075AD79 /* SpotifyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93081D24B9CB1D0075AD79 /* SpotifyClient.swift */; };
+		5D93082024B9CC050075AD79 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D93081F24B9CC050075AD79 /* SpotifyiOS.framework */; };
+		5D93082324B9DEA30075AD79 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93082224B9DEA30075AD79 /* AuthenticatedView.swift */; };
+		5D93082524B9DECD0075AD79 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93082424B9DECD0075AD79 /* LoginView.swift */; };
+		5D93082B24B9F0DF0075AD79 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D93082A24B9F0DF0075AD79 /* AppStore.swift */; };
+		5D95280424BA004E003D6CEF /* PlaylistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95280324BA004E003D6CEF /* PlaylistListView.swift */; };
+		5D95280824BA0B5E003D6CEF /* PlaylistDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95280724BA0B5E003D6CEF /* PlaylistDetailsView.swift */; };
+		5D95280B24BA0F43003D6CEF /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5D95280A24BA0F43003D6CEF /* URLImage */; };
+		5D95281124BA1818003D6CEF /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95281024BA1818003D6CEF /* RemoteImageView.swift */; };
+		5D95281324BA352E003D6CEF /* SpotifyWebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95281224BA352E003D6CEF /* SpotifyWebApi.swift */; };
+		5D95281524BA5747003D6CEF /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95281424BA5747003D6CEF /* UINavigationController+Extension.swift */; };
+		5DAEB83F24D5E52C007AD9C6 /* SortCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB83E24D5E52C007AD9C6 /* SortCardView.swift */; };
+		5DAEB84124D5E550007AD9C6 /* SortCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB84024D5E550007AD9C6 /* SortCardListView.swift */; };
+		5DAEB84524D5E63F007AD9C6 /* SortCardListFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB84424D5E63F007AD9C6 /* SortCardListFormView.swift */; };
+		5DEECDC324D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEECDC224D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift */; };
+		5DEEE1F624C222CD00F761DD /* RadarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEEE1F524C222CD00F761DD /* RadarChartView.swift */; };
+		5DF229D124E972910089519C /* SpotifyAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF229D024E972910089519C /* SpotifyAuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPreviewPlayer.swift; sourceTree = "<group>"; };
+		5D3AE1CC24CD95A200A65753 /* PlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistModel.swift; sourceTree = "<group>"; };
+		5D58BBD024BB2B110019E1B8 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
+		5D58BBD724BB4E190019E1B8 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
+		5D58BBD924BB6AA40019E1B8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		5D8CC59624C2F2B700361C21 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		5D8CC59824C2FB6E00361C21 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		5D9307EF24B9CB000075AD79 /* SortMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9307F224B9CB000075AD79 /* SortMyPlaylistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMyPlaylistApp.swift; sourceTree = "<group>"; };
 		5D9307F424B9CB000075AD79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +77,23 @@
 		5D93080B24B9CB020075AD79 /* SortMyPlaylistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SortMyPlaylistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D93080F24B9CB020075AD79 /* SortMyPlaylistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMyPlaylistUITests.swift; sourceTree = "<group>"; };
 		5D93081124B9CB020075AD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D93081D24B9CB1D0075AD79 /* SpotifyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyClient.swift; sourceTree = "<group>"; };
+		5D93081F24B9CC050075AD79 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		5D93082124B9CC310075AD79 /* SortMyPlaylist-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SortMyPlaylist-Bridge-Header.h"; sourceTree = "<group>"; };
+		5D93082224B9DEA30075AD79 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		5D93082424B9DECD0075AD79 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5D93082A24B9F0DF0075AD79 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		5D95280324BA004E003D6CEF /* PlaylistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistListView.swift; sourceTree = "<group>"; };
+		5D95280724BA0B5E003D6CEF /* PlaylistDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailsView.swift; sourceTree = "<group>"; };
+		5D95281024BA1818003D6CEF /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		5D95281224BA352E003D6CEF /* SpotifyWebApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyWebApi.swift; sourceTree = "<group>"; };
+		5D95281424BA5747003D6CEF /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		5DAEB83E24D5E52C007AD9C6 /* SortCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardView.swift; sourceTree = "<group>"; };
+		5DAEB84024D5E550007AD9C6 /* SortCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardListView.swift; sourceTree = "<group>"; };
+		5DAEB84424D5E63F007AD9C6 /* SortCardListFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardListFormView.swift; sourceTree = "<group>"; };
+		5DEECDC224D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnumeratedSequence+Sorted.swift"; sourceTree = "<group>"; };
+		5DEEE1F524C222CD00F761DD /* RadarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChartView.swift; sourceTree = "<group>"; };
+		5DF229D024E972910089519C /* SpotifyAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +101,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D58BBD424BB35A30019E1B8 /* Hue in Frameworks */,
+				5D95280B24BA0F43003D6CEF /* URLImage in Frameworks */,
+				5D93082024B9CC050075AD79 /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +124,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D58BBCF24BB2AF30019E1B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */,
+				5D93082A24B9F0DF0075AD79 /* AppStore.swift */,
+				5D3AE1CC24CD95A200A65753 /* PlaylistModel.swift */,
+				5D58BBD024BB2B110019E1B8 /* Spotify.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5D9307E624B9CB000075AD79 = {
 			isa = PBXGroup;
 			children = (
+				5D93082124B9CC310075AD79 /* SortMyPlaylist-Bridge-Header.h */,
+				5D93081F24B9CC050075AD79 /* SpotifyiOS.framework */,
 				5D9307F124B9CB000075AD79 /* SortMyPlaylist */,
 				5D93080324B9CB020075AD79 /* SortMyPlaylistTests */,
 				5D93080E24B9CB020075AD79 /* SortMyPlaylistUITests */,
@@ -95,8 +160,10 @@
 		5D9307F124B9CB000075AD79 /* SortMyPlaylist */ = {
 			isa = PBXGroup;
 			children = (
-				5D9307F224B9CB000075AD79 /* SortMyPlaylistApp.swift */,
-				5D9307F424B9CB000075AD79 /* ContentView.swift */,
+				5DEECDC624D6ED1B00E6EEE9 /* Services */,
+				5DFA95F124D5FB200048D0F0 /* Extensions */,
+				5DEEE1F324C222AD00F761DD /* Views */,
+				5D58BBCF24BB2AF30019E1B8 /* Models */,
 				5D9307F624B9CB020075AD79 /* Assets.xcassets */,
 				5D9307FB24B9CB020075AD79 /* Info.plist */,
 				5D9307F824B9CB020075AD79 /* Preview Content */,
@@ -130,6 +197,71 @@
 			path = SortMyPlaylistUITests;
 			sourceTree = "<group>";
 		};
+		5DAEB83D24D5E518007AD9C6 /* SortCard */ = {
+			isa = PBXGroup;
+			children = (
+				5DAEB83E24D5E52C007AD9C6 /* SortCardView.swift */,
+				5DAEB84024D5E550007AD9C6 /* SortCardListView.swift */,
+				5DAEB84424D5E63F007AD9C6 /* SortCardListFormView.swift */,
+			);
+			path = SortCard;
+			sourceTree = "<group>";
+		};
+		5DEECDC624D6ED1B00E6EEE9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5D93081D24B9CB1D0075AD79 /* SpotifyClient.swift */,
+				5D95281224BA352E003D6CEF /* SpotifyWebApi.swift */,
+				5DF229D024E972910089519C /* SpotifyAuthService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		5DEEE1F324C222AD00F761DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D95281024BA1818003D6CEF /* RemoteImageView.swift */,
+				5D9307F424B9CB000075AD79 /* ContentView.swift */,
+				5D9307F224B9CB000075AD79 /* SortMyPlaylistApp.swift */,
+				5D93082224B9DEA30075AD79 /* AuthenticatedView.swift */,
+				5D93082424B9DECD0075AD79 /* LoginView.swift */,
+				5DFA95F424D607720048D0F0 /* Playlist */,
+				5DAEB83D24D5E518007AD9C6 /* SortCard */,
+				5DEEE1F424C222BF00F761DD /* Charts */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5DEEE1F424C222BF00F761DD /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				5D8CC59624C2F2B700361C21 /* CGPoint+Extensions.swift */,
+				5DEEE1F524C222CD00F761DD /* RadarChartView.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		5DFA95F124D5FB200048D0F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5D95281424BA5747003D6CEF /* UINavigationController+Extension.swift */,
+				5D8CC59824C2FB6E00361C21 /* Collection+Extensions.swift */,
+				5DEECDC224D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift */,
+				5D58BBD924BB6AA40019E1B8 /* Color+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5DFA95F424D607720048D0F0 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				5D95280324BA004E003D6CEF /* PlaylistListView.swift */,
+				5D58BBD724BB4E190019E1B8 /* TrackListView.swift */,
+				5D95280724BA0B5E003D6CEF /* PlaylistDetailsView.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +278,10 @@
 			dependencies = (
 			);
 			name = SortMyPlaylist;
+			packageProductDependencies = (
+				5D95280A24BA0F43003D6CEF /* URLImage */,
+				5D58BBD324BB35A30019E1B8 /* Hue */,
+			);
 			productName = SortMyPlaylist;
 			productReference = 5D9307EF24B9CB000075AD79 /* SortMyPlaylist.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +353,10 @@
 				Base,
 			);
 			mainGroup = 5D9307E624B9CB000075AD79;
+			packageReferences = (
+				5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */,
+				5D58BBD224BB35A30019E1B8 /* XCRemoteSwiftPackageReference "Hue" */,
+			);
 			productRefGroup = 5D9307F024B9CB000075AD79 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +399,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAEB83F24D5E52C007AD9C6 /* SortCardView.swift in Sources */,
+				5D95280424BA004E003D6CEF /* PlaylistListView.swift in Sources */,
+				5D58BBDA24BB6AA40019E1B8 /* Color+Extension.swift in Sources */,
+				5D95281124BA1818003D6CEF /* RemoteImageView.swift in Sources */,
+				5DF229D124E972910089519C /* SpotifyAuthService.swift in Sources */,
+				5D8CC59724C2F2B700361C21 /* CGPoint+Extensions.swift in Sources */,
+				5D95281324BA352E003D6CEF /* SpotifyWebApi.swift in Sources */,
+				5D93082324B9DEA30075AD79 /* AuthenticatedView.swift in Sources */,
+				5D93082B24B9F0DF0075AD79 /* AppStore.swift in Sources */,
+				5DEEE1F624C222CD00F761DD /* RadarChartView.swift in Sources */,
+				5DAEB84524D5E63F007AD9C6 /* SortCardListFormView.swift in Sources */,
+				5D95280824BA0B5E003D6CEF /* PlaylistDetailsView.swift in Sources */,
+				5D58BBD124BB2B110019E1B8 /* Spotify.swift in Sources */,
 				5D9307F524B9CB000075AD79 /* ContentView.swift in Sources */,
 				5D9307F324B9CB000075AD79 /* SortMyPlaylistApp.swift in Sources */,
+				5D93082524B9DECD0075AD79 /* LoginView.swift in Sources */,
+				5D3AE1C724CC4CA500A65753 /* TrackPreviewPlayer.swift in Sources */,
+				5D3AE1CD24CD95A200A65753 /* PlaylistModel.swift in Sources */,
+				5DEECDC324D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift in Sources */,
+				5D93081E24B9CB1D0075AD79 /* SpotifyClient.swift in Sources */,
+				5D58BBD824BB4E190019E1B8 /* TrackListView.swift in Sources */,
+				5D95281524BA5747003D6CEF /* UINavigationController+Extension.swift in Sources */,
+				5DAEB84124D5E550007AD9C6 /* SortCardListView.swift in Sources */,
+				5D8CC59924C2FB6E00361C21 /* Collection+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,14 +583,20 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SortMyPlaylist/Preview Content\"";
 				DEVELOPMENT_TEAM = 3927UUGJ23;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SortMyPlaylist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olric.SortMyPlaylist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "SortMyPlaylist-Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,14 +611,20 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SortMyPlaylist/Preview Content\"";
 				DEVELOPMENT_TEAM = 3927UUGJ23;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SortMyPlaylist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olric.SortMyPlaylist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "SortMyPlaylist-Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -580,6 +754,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D58BBD224BB35A30019E1B8 /* XCRemoteSwiftPackageReference "Hue" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:zenangst/Hue.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.18;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D58BBD324BB35A30019E1B8 /* Hue */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D58BBD224BB35A30019E1B8 /* XCRemoteSwiftPackageReference "Hue" */;
+			productName = Hue;
+		};
+		5D95280A24BA0F43003D6CEF /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5D9307E724B9CB000075AD79 /* Project object */;
 }
