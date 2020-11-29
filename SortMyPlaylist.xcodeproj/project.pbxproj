@@ -65,7 +65,7 @@
 		5D58BBD924BB6AA40019E1B8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		5D8CC59624C2F2B700361C21 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		5D8CC59824C2FB6E00361C21 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
-		5D9307EF24B9CB000075AD79 /* SortMyPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SortMyPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D9307EF24B9CB000075AD79 /* Sortify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sortify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9307F224B9CB000075AD79 /* SortMyPlaylistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortMyPlaylistApp.swift; sourceTree = "<group>"; };
 		5D9307F424B9CB000075AD79 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5D9307F624B9CB020075AD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		5D9307F024B9CB000075AD79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D9307EF24B9CB000075AD79 /* SortMyPlaylist.app */,
+				5D9307EF24B9CB000075AD79 /* Sortify.app */,
 				5D93080024B9CB020075AD79 /* SortMyPlaylistTests.xctest */,
 				5D93080B24B9CB020075AD79 /* SortMyPlaylistUITests.xctest */,
 			);
@@ -265,9 +265,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5D9307EE24B9CB000075AD79 /* SortMyPlaylist */ = {
+		5D9307EE24B9CB000075AD79 /* Sortify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D93081424B9CB020075AD79 /* Build configuration list for PBXNativeTarget "SortMyPlaylist" */;
+			buildConfigurationList = 5D93081424B9CB020075AD79 /* Build configuration list for PBXNativeTarget "Sortify" */;
 			buildPhases = (
 				5D9307EB24B9CB000075AD79 /* Sources */,
 				5D9307EC24B9CB000075AD79 /* Frameworks */,
@@ -277,13 +277,13 @@
 			);
 			dependencies = (
 			);
-			name = SortMyPlaylist;
+			name = Sortify;
 			packageProductDependencies = (
 				5D95280A24BA0F43003D6CEF /* URLImage */,
 				5D58BBD324BB35A30019E1B8 /* Hue */,
 			);
 			productName = SortMyPlaylist;
-			productReference = 5D9307EF24B9CB000075AD79 /* SortMyPlaylist.app */;
+			productReference = 5D9307EF24B9CB000075AD79 /* Sortify.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5D9307FF24B9CB020075AD79 /* SortMyPlaylistTests */ = {
@@ -361,7 +361,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5D9307EE24B9CB000075AD79 /* SortMyPlaylist */,
+				5D9307EE24B9CB000075AD79 /* Sortify */,
 				5D9307FF24B9CB020075AD79 /* SortMyPlaylistTests */,
 				5D93080A24B9CB020075AD79 /* SortMyPlaylistUITests */,
 			);
@@ -447,12 +447,12 @@
 /* Begin PBXTargetDependency section */
 		5D93080224B9CB020075AD79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5D9307EE24B9CB000075AD79 /* SortMyPlaylist */;
+			target = 5D9307EE24B9CB000075AD79 /* Sortify */;
 			targetProxy = 5D93080124B9CB020075AD79 /* PBXContainerItemProxy */;
 		};
 		5D93080D24B9CB020075AD79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5D9307EE24B9CB000075AD79 /* SortMyPlaylist */;
+			target = 5D9307EE24B9CB000075AD79 /* Sortify */;
 			targetProxy = 5D93080C24B9CB020075AD79 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -594,7 +594,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olric.SortMyPlaylist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olric.sortify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "SortMyPlaylist-Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -622,7 +622,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.olric.SortMyPlaylist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.olric.sortify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "SortMyPlaylist-Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -726,7 +726,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D93081424B9CB020075AD79 /* Build configuration list for PBXNativeTarget "SortMyPlaylist" */ = {
+		5D93081424B9CB020075AD79 /* Build configuration list for PBXNativeTarget "Sortify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D93081524B9CB020075AD79 /* Debug */,

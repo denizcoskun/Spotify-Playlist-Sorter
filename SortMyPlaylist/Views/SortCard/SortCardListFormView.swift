@@ -10,25 +10,31 @@ import SwiftUI
 struct SortCardListFormView: View {
     @EnvironmentObject var playlistModel: PlaylistModel
     @EnvironmentObject var appStore: AppStore
+    @State var sortingTracks = false
+    @State var cancellable: Any?
+    @State var showSuccessMessage = false
+    @State var confirmMessage = false
     var body: some View {
         HStack {
             Spacer()
             VStack {
-                Button(action: updatePlaylist) {
+                Button(action: { confirmMessage = true }) {
                     HStack {
-                        if appStore.rearrangingTrack {
-                            Text("Saving").font(.title3)
-                        } else {
-                            Image(systemName: "icloud.and.arrow.up")
-                            Text("Save").font(.title3)
-                        }
-                    }.animation(.none)
+                        Image(systemName: sortingTracks ? "arrow.triangle.2.circlepath" : "icloud.and.arrow.up")
+                        Text(sortingTracks ? "Saving" : "Save   ").font(.title3)
+                    }
                 }
-                .disabled(appStore.rearrangingTrack)
+                .disabled(sortingTracks)
                 .padding(EdgeInsets(top: 15, leading: 30, bottom: 15, trailing: 30))
                 .foregroundColor(.white)
-                .background(Capsule().foregroundColor(Color.Spotify.green).shadow(radius: 10))
+                .background(Capsule().foregroundColor(sortingTracks ? Color.Spotify.darkGrey : Color.Spotify.green).shadow(radius: 10))
                 .padding(.trailing, 10)
+                .alert(isPresented: $confirmMessage) {
+                    Alert(title: Text("Warning"),
+                          message: Text("This action will change the order of the tracks in your playlist and it is irreversable. \n Do you want to continue?"),
+                          primaryButton: .default(Text("Ok")) { updatePlaylist() },
+                          secondaryButton: .cancel { removeSelection() })
+                }
 
                 Button(action: removeSelection) {
                     Text("Cancel")
@@ -37,6 +43,11 @@ struct SortCardListFormView: View {
                 }
                 .animation(Animation.spring().delay(0.2))
                 .padding(.trailing, 10)
+                .alert(isPresented: $showSuccessMessage) {
+                    Alert(title: Text("\(playlistModel.playlist!.name)"),
+                          message: Text("Successfully sorted by \(playlistModel.sortPlaylist.by.rawValue)"),
+                          dismissButton: .default(Text("Ok"), action: removeSelection))
+                }
             }
         }
         .animation(.spring())
@@ -52,8 +63,14 @@ struct SortCardListFormView: View {
     }
 
     func updatePlaylist() {
-        _ = playlistModel.sortedTracks.first().sink(receiveValue: { tracks in
-            self.appStore.rearrangeTracks(playlist: playlistModel.playlist!, tracks: tracks)
+        sortingTracks = true
+        cancellable = playlistModel.sortedTracks.first().flatMap { tracks in
+            self.playlistModel.rearrangeTracks(playlist: playlistModel.playlist!, tracks: tracks)
+        }.sink(receiveCompletion: { _ in }, receiveValue: { tracks in
+            let trackIds = tracks.map { $0.id }
+            self.appStore.updatePlaylistTracks(id: playlistModel.playlist!.id, trackIds: trackIds)
+            sortingTracks = false
+            showSuccessMessage = true
         })
     }
 }

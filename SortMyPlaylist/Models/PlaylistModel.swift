@@ -31,21 +31,13 @@ class PlaylistModel: ObservableObject {
         .eraseToAnyPublisher()
     }()
 
-    func updatePlaylist() {
-        updating = true
-        print("updating")
-        cancellable = sortedTracks
-            .first()
+    func rearrangeTracks(playlist: Spotify.Playlist, tracks: [EnumeratedSequence<[Spotify.Track]>.Element]) -> AnyPublisher<[Spotify.Track], Error> {
+        return Just(tracks)
             .flatMap { [self] sortedTracks in
-                spotifyWebApi.updatePlaylistTrackOrders(playlistId: self.playlist!.id, tracks: sortedTracks)
+                spotifyWebApi.updatePlaylistTrackOrders(playlistId: playlist.id, tracks: sortedTracks)
             }
-            .eraseToAnyPublisher()
-            .sink(receiveCompletion: { [self] _ in
-                updating = false
-            }, receiveValue: { [self] _ in
-                updating = false
-                sortPlaylist = .empty
-                self.playlistUpdated.send(true)
-            })
+            .flatMap { _ in
+                self.spotifyWebApi.getPlaylistTracks(playlist: playlist)
+            }.eraseToAnyPublisher()
     }
 }

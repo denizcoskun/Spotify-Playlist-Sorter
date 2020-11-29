@@ -14,8 +14,8 @@ class LoadingState {
 }
 
 class AppStore: ObservableObject {
-    @Published var playlists: [Spotify.Playlist] = [] // = MockPlaylistResponse
-    @Published var playlistTracks = [String: [String]]() // [MockPlaylist.id: MockPlaylistItems] // [String: Spotify.PlaylistItems]()
+    @Published var playlists: [Spotify.Playlist] = []
+    @Published var playlistTracks = [String: [String]]()
     @Published var tracks = [String: Spotify.Track]()
     @Published var test = false
     @Published var user: Spotify.User?
@@ -23,11 +23,6 @@ class AppStore: ObservableObject {
     var api = SpotifyWebApi.shared
     @Published var rearrangingTrack = false
     var timer: AnyCancellable?
-
-//    var playlists: [Spotify.Playlist] {
-//        return playlists?.compactMap({$0}) ?? []
-//    }
-
 
     func playlistTracks(id: String) -> [Spotify.Track] {
         let trackIds: [String] = playlistTracks[id] ?? []
@@ -81,28 +76,8 @@ class AppStore: ObservableObject {
             )
     }
 
-    func rearrangeTracks(playlist: Spotify.Playlist, tracks: [EnumeratedSequence<[Spotify.Track]>.Element]) {
-        rearrangingTrack = true
-        anyCancellable = Just(tracks)
-            .flatMap { [self] sortedTracks in
-                api.updatePlaylistTrackOrders(playlistId: playlist.id, tracks: sortedTracks)
-            }
-            .flatMap { _ in
-                self.api.getPlaylistTracks(playlist: playlist)
-            }
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { data in
-                    self.rearrangingTrack = false
-                    var tracks = self.tracks
-                    data.forEach { track in
-                        tracks[track.id] = track
-                    }
-
-                    self.tracks = tracks
-                    self.playlistTracks[playlist.id] = data.map { $0.id }
-                    self.objectWillChange.send()
-                }
-            )
+    func updatePlaylistTracks(id: String, trackIds: [String]) {
+        playlistTracks[id] = trackIds
+        objectWillChange.send()
     }
 }
