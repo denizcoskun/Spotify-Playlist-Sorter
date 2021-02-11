@@ -12,18 +12,21 @@ struct PlaylistDetailsView: View {
     @EnvironmentObject var appState: AppStore
     @StateObject var playlistModel = PlaylistModel()
     @State var tracks: [Spotify.Track] = []
-
     var body: some View {
         return VStack(spacing: 0) {
-            if tracks.count > 0 {
-                TrackListView(playlistName: playlist.name).environmentObject(playlistModel)
+            if !self.appState.tracksLoading {
+                if self.tracks.count > 0 {
+                    TrackListView(playlistName: playlist.name).environmentObject(playlistModel)
+                } else {
+                    Text("No tracks found.").font(.title3).foregroundColor(.white)
+                }
             } else {
                 VStack {
                     Text("Getting the tracks...").padding(.top, 100).colorInvert()
                     ProgressView()
-                        .colorInvert()
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
                         .frame(width: 50, height: 50)
-                }
+                }.font(.title3)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -42,7 +45,7 @@ struct PlaylistDetailsView: View {
                 endPoint: UnitPoint(x: 1, y: 1)
             ))
             .edgesIgnoringSafeArea(.all))
-        .onReceive(self.appState.objectWillChange) { _ in
+        .onReceive(self.appState.$tracksLoading) { _ in
             self.tracks = self.appState.playlistTracks(id: playlist.id)
             print("self.appState.$tracks count", self.tracks.count)
             playlistModel.tracks = self.appState.playlistTracks(id: playlist.id)

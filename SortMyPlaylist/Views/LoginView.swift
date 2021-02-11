@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import BetterSafariView
 
 struct LoginView: View {
     @EnvironmentObject var spotifyClient: SpotifyClient
+    @EnvironmentObject var spotifyWebApi: SpotifyWebApi
     @State private var showItems = false
+    @State private var showLoginPage = false
+    @State var loginViewModel = LoginViewModel()
+    
     var body: some View {
         ZStack {
             LinearGradient(
@@ -44,7 +49,7 @@ struct LoginView: View {
                 ZStack {
                     Color.clear
                     VStack {
-                        Button(action: self.spotifyClient.authenticate) {
+                        Button(action: { showLoginPage.toggle()}) {
                             HStack {
                                 Image("Spotify_Icon_RGB_White").resizable()
                                     .renderingMode(.original)
@@ -69,11 +74,35 @@ struct LoginView: View {
                 self.showItems = true
             }
         }
+        .webAuthenticationSession(isPresented: $showLoginPage) {
+            WebAuthenticationSession(
+                url: URL(string: url)!,
+                callbackURLScheme: "sortmyplaylist"
+            ) { callbackURL, error in
+
+                if let url = callbackURL, let code = url.valueOf("code"){
+                    loginViewModel.getAccessToken(code: code)
+                }
+            }
+            .prefersEphemeralWebBrowserSession(false)
+        }
+    }
+    
+    
+    var url: String {
+        "https://accounts.spotify.com/authorize?response_type=code" +
+            "&client_id=" + SpotifyClient.SpotifyClientID +
+            "&scope=playlist-read-private,playlist-read-collaborative,playlist-modify-private,playlist-modify-public,user-library-read" +
+            "&redirect_uri=\(SpotifyClient.SpotifyRedirectURI)"
     }
 }
+
+
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView().environmentObject(SpotifyClient()).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/ .all/*@END_MENU_TOKEN@*/)
     }
 }
+
+

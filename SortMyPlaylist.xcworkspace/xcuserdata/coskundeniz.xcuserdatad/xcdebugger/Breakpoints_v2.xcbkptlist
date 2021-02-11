@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9467CCD2-BC2B-4F0B-9E71-756E79F00D5C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C88A296F-84D5-446D-A353-35DCD794DCA6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FCFB38B4-D33D-496C-9259-55B52E86C766"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Models/AppStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "loadPlaylistTracks(playlist:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B51F55C2-E2E7-4224-9AEE-AFFF0D6F13B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Models/AppStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "loadPlaylistTracks(playlist:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B51F55C2-E2E7-4224-9AEE-AFFF0D6F13B3 - ef539156a2f58ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;Sortify.Spotify.Track&gt;) -&gt; () in Sortify.AppStore.loadPlaylistTracks(playlist: Sortify.Spotify.Playlist) -&gt; ()"
+                  moduleName = "Sortify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coskundeniz/SortMyPlaylist/SortMyPlaylist/Models/AppStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "B51F55C2-E2E7-4224-9AEE-AFFF0D6F13B3 - 1fa683e7aad22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Sortify.Spotify.Track) -&gt; () in closure #2 (Swift.Array&lt;Sortify.Spotify.Track&gt;) -&gt; () in Sortify.AppStore.loadPlaylistTracks(playlist: Sortify.Spotify.Playlist) -&gt; ()"
+                  moduleName = "Sortify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coskundeniz/SortMyPlaylist/SortMyPlaylist/Models/AppStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "500DF724-BA9B-4C1C-AA07-0D16C6E1F191"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Models/AppStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "loadPlaylistTracks(playlist:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

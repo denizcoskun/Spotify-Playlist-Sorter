@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BetterSafariView",
+        "repositoryURL": "https://github.com/stleamist/BetterSafariView.git",
+        "state": {
+          "branch": null,
+          "revision": "a4a8590a24f088ddb077815f49b62c71342c5869",
+          "version": "2.2.2"
+        }
+      },
+      {
+        "package": "Hue",
+        "repositoryURL": "git@github.com:zenangst/Hue.git",
+        "state": {
+          "branch": null,
+          "revision": "b9d920cee4ba795fefb828d130744eee1e3d2feb",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "URLImage",
+        "repositoryURL": "git@github.com:dmytro-anokhin/url-image.git",
+        "state": {
+          "branch": null,
+          "revision": "22eca5ee4f317e0283da75426849ee23f0516022",
+          "version": "0.9.19"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

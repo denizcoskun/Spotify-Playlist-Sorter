@@ -23,6 +23,7 @@ class AppStore: ObservableObject {
     var api = SpotifyWebApi.shared
     @Published var rearrangingTrack = false
     var timer: AnyCancellable?
+    @Published var tracksLoading = true
 
     func playlistTracks(id: String) -> [Spotify.Track] {
         let trackIds: [String] = playlistTracks[id] ?? []
@@ -60,9 +61,13 @@ class AppStore: ObservableObject {
     }
 
     func loadPlaylistTracks(playlist: Spotify.Playlist) {
+        tracksLoading = true
         anyCancellable = api.getPlaylistTracks(playlist: playlist)
             .sink(
-                receiveCompletion: { _ in },
+                receiveCompletion: { error in
+                    self.tracksLoading = false
+                    
+                },
                 receiveValue: { data in
                     var tracks = self.tracks
                     data.forEach { track in
@@ -71,6 +76,8 @@ class AppStore: ObservableObject {
 
                     self.tracks = tracks
                     self.playlistTracks[playlist.id] = data.map { $0.id }
+                    print(self.playlistTracks[playlist.id]!)
+                    self.tracksLoading = false
                     self.objectWillChange.send()
                 }
             )

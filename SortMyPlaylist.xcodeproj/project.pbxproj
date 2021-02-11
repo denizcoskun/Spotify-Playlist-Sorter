@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		566E13D847C4943576208404 /* Pods_Sortify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9AEC9140211658EB560DEA /* Pods_Sortify.framework */; };
+		5D24B1102585393500679554 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D24B10F2585393500679554 /* GoogleService-Info.plist */; };
 		5D3AE1C724CC4CA500A65753 /* TrackPreviewPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */; };
 		5D3AE1CD24CD95A200A65753 /* PlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3AE1CC24CD95A200A65753 /* PlaylistModel.swift */; };
 		5D58BBD124BB2B110019E1B8 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58BBD024BB2B110019E1B8 /* Spotify.swift */; };
@@ -35,6 +37,9 @@
 		5DAEB83F24D5E52C007AD9C6 /* SortCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB83E24D5E52C007AD9C6 /* SortCardView.swift */; };
 		5DAEB84124D5E550007AD9C6 /* SortCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB84024D5E550007AD9C6 /* SortCardListView.swift */; };
 		5DAEB84524D5E63F007AD9C6 /* SortCardListFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB84424D5E63F007AD9C6 /* SortCardListFormView.swift */; };
+		5DE8B98725868B16009599A7 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 5DE8B98625868B16009599A7 /* BetterSafariView */; };
+		5DE8B98C258691C1009599A7 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8B98B258691C1009599A7 /* URL+Extension.swift */; };
+		5DE8B999258692CB009599A7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8B998258692CB009599A7 /* LoginViewModel.swift */; };
 		5DEECDC324D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEECDC224D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift */; };
 		5DEEE1F624C222CD00F761DD /* RadarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEEE1F524C222CD00F761DD /* RadarChartView.swift */; };
 		5DF229D124E972910089519C /* SpotifyAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF229D024E972910089519C /* SpotifyAuthService.swift */; };
@@ -58,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2ADF7502C684C8EE5139CBDD /* Pods-Sortify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sortify.debug.xcconfig"; path = "Target Support Files/Pods-Sortify/Pods-Sortify.debug.xcconfig"; sourceTree = "<group>"; };
+		5D24B10F2585393500679554 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPreviewPlayer.swift; sourceTree = "<group>"; };
 		5D3AE1CC24CD95A200A65753 /* PlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistModel.swift; sourceTree = "<group>"; };
 		5D58BBD024BB2B110019E1B8 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
@@ -91,9 +98,13 @@
 		5DAEB83E24D5E52C007AD9C6 /* SortCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardView.swift; sourceTree = "<group>"; };
 		5DAEB84024D5E550007AD9C6 /* SortCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardListView.swift; sourceTree = "<group>"; };
 		5DAEB84424D5E63F007AD9C6 /* SortCardListFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardListFormView.swift; sourceTree = "<group>"; };
+		5DE8B98B258691C1009599A7 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		5DE8B998258692CB009599A7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5DEECDC224D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnumeratedSequence+Sorted.swift"; sourceTree = "<group>"; };
 		5DEEE1F524C222CD00F761DD /* RadarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChartView.swift; sourceTree = "<group>"; };
 		5DF229D024E972910089519C /* SpotifyAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAuthService.swift; sourceTree = "<group>"; };
+		BA9AEC9140211658EB560DEA /* Pods_Sortify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sortify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB5351ED680F2F561CD485A /* Pods-Sortify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sortify.release.xcconfig"; path = "Target Support Files/Pods-Sortify/Pods-Sortify.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +115,8 @@
 				5D58BBD424BB35A30019E1B8 /* Hue in Frameworks */,
 				5D95280B24BA0F43003D6CEF /* URLImage in Frameworks */,
 				5D93082024B9CC050075AD79 /* SpotifyiOS.framework in Frameworks */,
+				566E13D847C4943576208404 /* Pods_Sortify.framework in Frameworks */,
+				5DE8B98725868B16009599A7 /* BetterSafariView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,10 +137,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5607767E8D65B707BF25E4C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA9AEC9140211658EB560DEA /* Pods_Sortify.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5D58BBCF24BB2AF30019E1B8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */,
+				5DE8B998258692CB009599A7 /* LoginViewModel.swift */,
 				5D93082A24B9F0DF0075AD79 /* AppStore.swift */,
 				5D3AE1CC24CD95A200A65753 /* PlaylistModel.swift */,
 				5D58BBD024BB2B110019E1B8 /* Spotify.swift */,
@@ -144,6 +166,8 @@
 				5D93080324B9CB020075AD79 /* SortMyPlaylistTests */,
 				5D93080E24B9CB020075AD79 /* SortMyPlaylistUITests */,
 				5D9307F024B9CB000075AD79 /* Products */,
+				EFB7D261812D725B31B77506 /* Pods */,
+				5607767E8D65B707BF25E4C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +184,7 @@
 		5D9307F124B9CB000075AD79 /* SortMyPlaylist */ = {
 			isa = PBXGroup;
 			children = (
+				5D24B10F2585393500679554 /* GoogleService-Info.plist */,
 				5DEECDC624D6ED1B00E6EEE9 /* Services */,
 				5DFA95F124D5FB200048D0F0 /* Extensions */,
 				5DEEE1F324C222AD00F761DD /* Views */,
@@ -167,6 +192,7 @@
 				5D9307F624B9CB020075AD79 /* Assets.xcassets */,
 				5D9307FB24B9CB020075AD79 /* Info.plist */,
 				5D9307F824B9CB020075AD79 /* Preview Content */,
+				5DE8B98B258691C1009599A7 /* URL+Extension.swift */,
 			);
 			path = SortMyPlaylist;
 			sourceTree = "<group>";
@@ -262,6 +288,15 @@
 			path = Playlist;
 			sourceTree = "<group>";
 		};
+		EFB7D261812D725B31B77506 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2ADF7502C684C8EE5139CBDD /* Pods-Sortify.debug.xcconfig */,
+				DCB5351ED680F2F561CD485A /* Pods-Sortify.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -269,9 +304,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D93081424B9CB020075AD79 /* Build configuration list for PBXNativeTarget "Sortify" */;
 			buildPhases = (
+				CF3C7AFD6316E0D77946ECAD /* [CP] Check Pods Manifest.lock */,
 				5D9307EB24B9CB000075AD79 /* Sources */,
 				5D9307EC24B9CB000075AD79 /* Frameworks */,
 				5D9307ED24B9CB000075AD79 /* Resources */,
+				333F380D3E89ACF794FD94A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,6 +318,7 @@
 			packageProductDependencies = (
 				5D95280A24BA0F43003D6CEF /* URLImage */,
 				5D58BBD324BB35A30019E1B8 /* Hue */,
+				5DE8B98625868B16009599A7 /* BetterSafariView */,
 			);
 			productName = SortMyPlaylist;
 			productReference = 5D9307EF24B9CB000075AD79 /* Sortify.app */;
@@ -356,6 +394,7 @@
 			packageReferences = (
 				5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */,
 				5D58BBD224BB35A30019E1B8 /* XCRemoteSwiftPackageReference "Hue" */,
+				5DE8B98525868B16009599A7 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
 			);
 			productRefGroup = 5D9307F024B9CB000075AD79 /* Products */;
 			projectDirPath = "";
@@ -374,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D9307FA24B9CB020075AD79 /* Preview Assets.xcassets in Resources */,
+				5D24B1102585393500679554 /* GoogleService-Info.plist in Resources */,
 				5D9307F724B9CB020075AD79 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +434,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		333F380D3E89ACF794FD94A3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sortify/Pods-Sortify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sortify/Pods-Sortify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sortify/Pods-Sortify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF3C7AFD6316E0D77946ECAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sortify-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5D9307EB24B9CB000075AD79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -407,6 +489,8 @@
 				5D8CC59724C2F2B700361C21 /* CGPoint+Extensions.swift in Sources */,
 				5D95281324BA352E003D6CEF /* SpotifyWebApi.swift in Sources */,
 				5D93082324B9DEA30075AD79 /* AuthenticatedView.swift in Sources */,
+				5DE8B999258692CB009599A7 /* LoginViewModel.swift in Sources */,
+				5DE8B98C258691C1009599A7 /* URL+Extension.swift in Sources */,
 				5D93082B24B9F0DF0075AD79 /* AppStore.swift in Sources */,
 				5DEEE1F624C222CD00F761DD /* RadarChartView.swift in Sources */,
 				5DAEB84524D5E63F007AD9C6 /* SortCardListFormView.swift in Sources */,
@@ -576,10 +660,12 @@
 		};
 		5D93081524B9CB020075AD79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2ADF7502C684C8EE5139CBDD /* Pods-Sortify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"SortMyPlaylist/Preview Content\"";
 				DEVELOPMENT_TEAM = 3927UUGJ23;
 				ENABLE_PREVIEWS = YES;
@@ -593,21 +679,23 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olric.sortify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "SortMyPlaylist-Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		5D93081624B9CB020075AD79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCB5351ED680F2F561CD485A /* Pods-Sortify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"SortMyPlaylist/Preview Content\"";
 				DEVELOPMENT_TEAM = 3927UUGJ23;
 				ENABLE_PREVIEWS = YES;
@@ -621,12 +709,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.olric.sortify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "SortMyPlaylist-Bridge-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -772,6 +860,14 @@
 				minimumVersion = 0.9.18;
 			};
 		};
+		5DE8B98525868B16009599A7 /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stleamist/BetterSafariView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -784,6 +880,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
+		};
+		5DE8B98625868B16009599A7 /* BetterSafariView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DE8B98525868B16009599A7 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
+			productName = BetterSafariView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

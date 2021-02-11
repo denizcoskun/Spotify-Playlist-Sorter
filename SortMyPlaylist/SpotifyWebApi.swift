@@ -8,6 +8,16 @@
 import Combine
 import Foundation
 
+struct SpotifyAuthResponse: Codable {
+    let accessToken: String
+    let expiresIn: Int
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case expiresIn = "expires_in"
+    }
+    
+}
+
 class SpotifyWebApi: ObservableObject {
     let baseUrl = "https://api.spotify.com/v1/"
     let spotifyClient = SpotifyAuthService.shared
@@ -20,6 +30,42 @@ class SpotifyWebApi: ObservableObject {
         set {}
     }
 
+    func getAccessToken(autenticationCode: String) -> AnyPublisher<SpotifyAuthResponse, Error> {
+        
+
+
+        let url = URL(string: "https://accounts.spotify.com/api/token")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let requestHeader = ["Content-Type": "application/x-www-form-urlencoded"]
+        request.allHTTPHeaderFields = requestHeader
+
+        let body: [String : String] = [
+            "code": autenticationCode,
+            "grant_type": "authorization_code",
+            "redirect_uri": "sortmyplaylist://spotify-login-callback",
+            "client_id": SpotifyClient.SpotifyClientID,
+            "client_secret": SpotifyClient.SpotifyClientSecret
+        ]
+        let jsonString = body.reduce("") { "\($0)\($1.0)=\($1.1)&" }.dropLast()
+        let jsonData = jsonString.data(using: .utf8, allowLossyConversion: false)!
+        request.httpBody = jsonData
+
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map { $0.data  }
+            .decode(type: SpotifyAuthResponse.self, decoder: JSONDecoder())
+            .handleEvents(receiveOutput:  { response  in
+                DispatchQueue.main.async {
+                    self.spotifyClient.accessToken = response.accessToken
+                    self.spotifyClient.expirationDate = Date() + TimeInterval(response.expiresIn)
+                    print(self.spotifyClient.accessToken)
+                }
+                
+            })
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
     func getUser() -> AnyPublisher<Spotify.User, Error> {
         let request = httpRequest(url: "me", type: .Get)
         return URLSession.shared

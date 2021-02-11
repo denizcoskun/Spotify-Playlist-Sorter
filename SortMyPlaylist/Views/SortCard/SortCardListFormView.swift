@@ -14,14 +14,24 @@ struct SortCardListFormView: View {
     @State var cancellable: Any?
     @State var showSuccessMessage = false
     @State var confirmMessage = false
+    @State var animate = false
     var body: some View {
         HStack {
             Spacer()
             VStack {
                 Button(action: { confirmMessage = true }) {
                     HStack {
-                        Image(systemName: sortingTracks ? "arrow.triangle.2.circlepath" : "icloud.and.arrow.up")
+                        
+                        if sortingTracks {
+                            ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                                .padding(2)
+
+                        } else {
+                            Image(systemName: "icloud.and.arrow.up")
+                        }
+
                         Text(sortingTracks ? "Saving" : "Save   ").font(.title3)
+                        
                     }
                 }
                 .disabled(sortingTracks)
@@ -31,7 +41,7 @@ struct SortCardListFormView: View {
                 .padding(.trailing, 10)
                 .alert(isPresented: $confirmMessage) {
                     Alert(title: Text("Warning"),
-                          message: Text("This action will change the order of the tracks in your playlist and it is irreversable. \n Do you want to continue?"),
+                          message: Text("This action will change the order of the tracks and it is irreversable. \n Do you want to continue?"),
                           primaryButton: .default(Text("Ok")) { updatePlaylist() },
                           secondaryButton: .cancel { removeSelection() })
                 }
