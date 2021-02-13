@@ -27,7 +27,11 @@ enum Spotify {
         var next: String? = nil
     }
 
-    struct Playlist: Codable, Identifiable {
+    struct Playlist: Codable, Identifiable, Equatable {
+        static func == (lhs: Spotify.Playlist, rhs: Spotify.Playlist) -> Bool {
+            ((try? JSONEncoder().encode(lhs) == JSONEncoder().encode(rhs)) != nil)
+        }
+        
         let id: String
         let href: String
         let images: [Spotify.Image]?
@@ -63,7 +67,11 @@ enum Spotify {
         }
     }
 
-    struct Track: Codable {
+    struct Track: Codable, Equatable {
+        static func == (lhs: Spotify.Track, rhs: Spotify.Track) -> Bool {
+            lhs.id == rhs.id
+        }
+        
         let id: String
         let artists: [Artist]?
         let album: Spotify.Album?

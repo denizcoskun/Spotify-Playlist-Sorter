@@ -11,7 +11,6 @@ import Firebase
 @main
 struct SortMyPlaylistApp: App {
     var spotifyClient = SpotifyClient.shared
-    var appState = AppStore()
     var spotifyWebApi = SpotifyWebApi.shared
     
     init() {
@@ -23,7 +22,6 @@ struct SortMyPlaylistApp: App {
             ContentView()
                 .background(Color.Spotify.black)
                 .environmentObject(spotifyClient)
-                .environmentObject(appState)
                 .environmentObject(spotifyWebApi)
                 .onOpenURL { url in self.spotifyClient.startSession(url) }
         }

@@ -16,9 +16,9 @@ class SpotifyClient: NSObject, ObservableObject, SPTSessionManagerDelegate, SPTA
 
     let authService = SpotifyAuthService.shared
 
-    static let SpotifyClientID = "cbc821ef564e4be69b5a1ae6ea6583e9"
+    static let SpotifyClientID = ""
     static let SpotifyRedirectURI = URL(string: "sortmyplaylist://spotify-login-callback")!
-    static let SpotifyClientSecret = "eedbdd9955b641f5b849daf0382696e3"
+    static let SpotifyClientSecret = ""
 
     lazy var configuration: SPTConfiguration = {
         let configuration = SPTConfiguration(clientID: SpotifyClient.SpotifyClientID, redirectURL: SpotifyClient.SpotifyRedirectURI)

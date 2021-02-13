@@ -10,7 +10,6 @@ import SwiftUI
 struct TrackListView: View {
     @State var tracks: [EnumeratedSequence<[Spotify.Track]>.Element] = []
     @EnvironmentObject var playlistModel: PlaylistModel
-    @EnvironmentObject var appState: AppStore
 
     let playlistName: String
 

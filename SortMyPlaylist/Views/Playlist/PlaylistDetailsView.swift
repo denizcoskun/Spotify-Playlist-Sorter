@@ -9,12 +9,13 @@ import SwiftUI
 
 struct PlaylistDetailsView: View {
     let playlist: Spotify.Playlist
-    @EnvironmentObject var appState: AppStore
     @StateObject var playlistModel = PlaylistModel()
     @State var tracks: [Spotify.Track] = []
+    
+    @State var tracksLoading = true
     var body: some View {
         return VStack(spacing: 0) {
-            if !self.appState.tracksLoading {
+            if !tracksLoading {
                 if self.tracks.count > 0 {
                     TrackListView(playlistName: playlist.name).environmentObject(playlistModel)
                 } else {
@@ -29,11 +30,11 @@ struct PlaylistDetailsView: View {
                 }.font(.title3)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             self.playlistModel.playlist = self.playlist
-            self.appState.loadPlaylistTracks(playlist: playlist)
+            AppStore.shared.dispatch(action: PlaylistTracksStore.Action.LoadPlaylistTracks(self.playlist))
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Rectangle()
             .fill(LinearGradient(
                 gradient: Gradient(stops: [
@@ -45,18 +46,25 @@ struct PlaylistDetailsView: View {
                 endPoint: UnitPoint(x: 1, y: 1)
             ))
             .edgesIgnoringSafeArea(.all))
-        .onReceive(self.appState.$tracksLoading) { _ in
-            self.tracks = self.appState.playlistTracks(id: playlist.id)
-            print("self.appState.$tracks count", self.tracks.count)
-            playlistModel.tracks = self.appState.playlistTracks(id: playlist.id)
+        .onReceive(AppStore.shared.loadingState) {
+            print("tracksLoading", $0.tracks)
+            tracksLoading = $0.tracks
         }
+        .onReceive(AppStore.shared.mergeStates(statePath: \.tracksState, statePath2: \.playlistTracksState)) {tracksState, playlistTracks in
+            self.tracks = tracksState.compactMap({$0.value})
+            let trackIds = playlistTracks[self.playlist.id] ?? []
+            let tracks = trackIds.compactMap({tracksState[$0]})
+            self.tracks = tracks
+            playlistModel.tracks = tracks
+        }
+        
     }
 }
 
 struct PlaylistDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            PlaylistDetailsView(playlist: MockPlaylist).environmentObject(AppStore()).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/ .all/*@END_MENU_TOKEN@*/)
+            PlaylistDetailsView(playlist: MockPlaylist).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/ .all/*@END_MENU_TOKEN@*/)
         }
     }
 }

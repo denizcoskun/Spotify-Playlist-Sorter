@@ -49,7 +49,7 @@ struct LoginView: View {
                 ZStack {
                     Color.clear
                     VStack {
-                        Button(action: { showLoginPage.toggle()}) {
+                        Button(action: login) {
                             HStack {
                                 Image("Spotify_Icon_RGB_White").resizable()
                                     .renderingMode(.original)
@@ -94,6 +94,10 @@ struct LoginView: View {
             "&client_id=" + SpotifyClient.SpotifyClientID +
             "&scope=playlist-read-private,playlist-read-collaborative,playlist-modify-private,playlist-modify-public,user-library-read" +
             "&redirect_uri=\(SpotifyClient.SpotifyRedirectURI)"
+    }
+    
+    func login() {
+        showLoginPage.toggle()
     }
 }
 

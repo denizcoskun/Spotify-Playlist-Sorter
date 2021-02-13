@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PlaylistListView: View {
-    @EnvironmentObject var appState: AppStore
     let columns = [
         GridItem(.adaptive(minimum: 150, maximum: 200)),
     ]
-
+    @State var playlists: [Spotify.Playlist] = []
+    
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
@@ -33,10 +33,13 @@ struct PlaylistListView: View {
                 startPoint: UnitPoint(x: -0.67, y: -0.68),
                 endPoint: UnitPoint(x: 1, y: 1)
             )).edgesIgnoringSafeArea(.all))
+        .onReceive(AppStore.shared.playlistsState) {playlists in
+            self.playlists = playlists
+            print(playlists.count)
+        }
     }
 
     func list() -> some View {
-        let playlists = appState.playlists
         return Group {
             if playlists.count > 0 {
                 ForEach(playlists, id: \.self.id) { playlist in
@@ -73,9 +76,9 @@ struct PlaylistListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             Group {
-                PlaylistListView().environmentObject(AppStore()).background(Color.Spotify.black)
+                PlaylistListView().background(Color.Spotify.black)
 
-                PlaylistListView().environmentObject(AppStore()).edgesIgnoringSafeArea(.all
+                PlaylistListView().edgesIgnoringSafeArea(.all
                 ).background(Color.Spotify.black)
                     .previewLayout(PreviewLayout.fixed(width: 800, height: 320))
             }
