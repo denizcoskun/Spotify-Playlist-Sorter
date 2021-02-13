@@ -18,10 +18,8 @@ class PlaylistModel: ObservableObject {
     @Published var playlist: Spotify.Playlist?
     @Published var sortPlaylist = SortPlaylist(by: .none, order: .none)
     @Published var tracks: [Spotify.Track] = []
-    @Published var updating = false
-    var playlistUpdated = PassthroughSubject<Bool, Never>()
+    
     let spotifyWebApi = SpotifyWebApi.shared
-    var cancellable: AnyCancellable?
 
     lazy var sortedTracks: AnyPublisher<[EnumeratedSequence<[Spotify.Track]>.Element], Never> = {
         $tracks.map { $0.enumerated() }.combineLatest($sortPlaylist).map { tracks, sort in

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SortCardListFormView: View {
     @EnvironmentObject var playlistModel: PlaylistModel
-    @EnvironmentObject var appStore: AppStore
     @State var sortingTracks = false
     @State var cancellable: Any?
     @State var showSuccessMessage = false
@@ -21,7 +20,6 @@ struct SortCardListFormView: View {
             VStack {
                 Button(action: { confirmMessage = true }) {
                     HStack {
-                        
                         if sortingTracks {
                             ProgressView().progressViewStyle(CircularProgressViewStyle(tint: Color.white))
                                 .padding(2)
@@ -63,8 +61,11 @@ struct SortCardListFormView: View {
         .animation(.spring())
         .transition(
             .asymmetric(insertion: .move(edge: .trailing), removal: .identity)
-        ).onReceive(playlistModel.playlistUpdated) { _ in
-            self.appStore.loadPlaylistTracks(playlist: playlistModel.playlist!)
+        ).onReceive(AppStore.shared.actions) { action in
+            if case PlaylistTracksStore.Action.LoadPlaylistTracksSuccess(_, _) = action {
+                playlistModel.sortPlaylist = .empty
+                sortingTracks = false
+            }
         }
     }
 
@@ -74,13 +75,9 @@ struct SortCardListFormView: View {
 
     func updatePlaylist() {
         sortingTracks = true
-        cancellable = playlistModel.sortedTracks.first().flatMap { tracks in
-            self.playlistModel.rearrangeTracks(playlist: playlistModel.playlist!, tracks: tracks)
-        }.sink(receiveCompletion: { _ in }, receiveValue: { tracks in
-            let trackIds = tracks.map { $0.id }
-            self.appStore.updatePlaylistTracks(id: playlistModel.playlist!.id, trackIds: trackIds)
-            sortingTracks = false
-            showSuccessMessage = true
+        cancellable = playlistModel.sortedTracks.first().map { tracks in
+            AppStore.shared.dispatch(action: PlaylistTracksStore.Action.ReorderPlaylistTracks(playlistModel.playlist!, tracks))
+        }.sink(receiveCompletion: { _ in }, receiveValue: { _ in
         })
     }
 }

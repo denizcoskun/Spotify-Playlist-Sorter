@@ -79,30 +79,9 @@ class SpotifyWebApi: ObservableObject {
     func getPlaylists(_ url: String = "me/playlists?limit=50") -> AnyPublisher<[Spotify.Playlist], Error> {
         let request = httpRequest(url: url, type: .Get)
         return URLSession.shared.dataTaskPublisher(for: request)
-            .tryMap { output in
-//                if let httpResponse = output.response as? HTTPURLResponse {
-//                    if([400, 401].contains(httpResponse.statusCode)) {
-//                        #warning("accessToken= shouldn't be set here")
-//                        SpotifyAuthService.shared.accessToken = ""
-//                        SpotifyAuthService.shared.setToken("")
-//                    }
-//                    print("statusCode: \(httpResponse.statusCode)")
-//                }
-                output.data
-            }
+            .map({$0.data})
             .decode(type: Spotify.PlaylistsResponse.self, decoder: JSONDecoder())
             .map { $0.items }
-//            .flatMap({response -> AnyPublisher<[Spotify.PlaylistsResponse], Error> in
-//                if response.next != nil {
-//                    return self.getPlaylists().prepend(response)
-//                } else {
-//                   return Future<[Spotify.PlaylistsResponse], Error> { promise in
-//                    promise(.success([response]))
-//                    }.eraseToAnyPublisher()
-//
-//                }
-//            })
-//            .scan([], {$0 + $1})
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }

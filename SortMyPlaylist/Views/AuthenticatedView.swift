@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct AuthenticatedView: View {
-    @EnvironmentObject var appState: AppStore
     var body: some View {
         PlaylistListView().onAppear(
-            perform: self.appState.loadUserAndOwnPlaylists
+            perform: {
+                AppStore.shared.dispatch(action: PlaylistsStore.Action.LoadPlaylists)
+            }
         )
     }
 }
 
 struct AuthenticatedView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticatedView().environmentObject(AppStore()).edgesIgnoringSafeArea(.all)
+        AuthenticatedView().edgesIgnoringSafeArea(.all)
     }
 }
