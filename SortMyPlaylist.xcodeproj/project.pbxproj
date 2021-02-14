@@ -893,7 +893,7 @@
 			repositoryURL = "https://github.com/denizcoskun/RxStore";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				minimumVersion = 0.0.2;
 			};
 		};
 		5DE8B98525868B16009599A7 /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {

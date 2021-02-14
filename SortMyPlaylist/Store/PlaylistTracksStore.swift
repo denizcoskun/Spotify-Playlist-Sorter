@@ -21,8 +21,8 @@ struct PlaylistTracksStore {
              LoadPlaylistTracksFailure,
              ReorderPlaylistTracks(Spotify.Playlist, [EnumeratedSequence<[Spotify.Track]>.Element]),
              ReorderPlaylistTracksSuccess(Spotify.Playlist),
-             ReorderPlaylistTracksFailure(Spotify.Playlist)
-             
+             ReorderPlaylistTracksFailure(Spotify.Playlist),
+             CancelReorderPlaylistTracks
     }
     
     static func reducer(state: State, action: RxStoreAction) -> State {
@@ -37,10 +37,10 @@ struct PlaylistTracksStore {
     }
 }
 
-struct PlaylistTracksEffects: RxStoreEffects {
+struct PlaylistTracksEffects {
     typealias Store = AppStore
     
-    static let getPlaylistTracks: Effect = {state, action in
+    static let getPlaylistTracks: RxStore.Effect = {state, action in
         return action.flatMap { action -> AnyPublisher<RxStoreAction, Never> in
 
             switch action {
@@ -59,20 +59,28 @@ struct PlaylistTracksEffects: RxStoreEffects {
     }
     
 
-    static let reorderPlaylistTrack: Effect = {_, action in
-        return action.flatMap { action -> ActionObservable in
+    static let reorderPlaylistTrack: RxStore.Effect = {store, action in
+        return action.flatMap { action -> RxStore.ActionObservable in
             if case PlaylistTracksStore.Action.ReorderPlaylistTracks(let playlist, let enumeratedTracks) = action {
                 return SpotifyWebApi.shared.updatePlaylistTrackOrders(playlistId: playlist.id, tracks: enumeratedTracks)
                     .map({_ in PlaylistTracksStore.Action.ReorderPlaylistTracksSuccess(playlist)})
                     .catch({_ in Just(PlaylistTracksStore.Action.ReorderPlaylistTracksFailure(playlist))
                     })
+                    .prefix(untilOutputFrom: store.stream.filter({action in
+                            if case PlaylistTracksStore.Action.CancelReorderPlaylistTracks = action {
+                                return true
+                            }
+                            return false
+                        })
+                        .first()
+                    )
                     .eraseToAnyPublisher()
             }
             return Empty().eraseToAnyPublisher()
         }.eraseToAnyPublisher()
     }
     
-    static let reorderPlaylistTrackSuccess: Effect = {_, action in
+    static let reorderPlaylistTrackSuccess: RxStore.Effect = {_, action in
         return action.map { action  in
             if case PlaylistTracksStore.Action.ReorderPlaylistTracksSuccess(let playlist) = action {
                 return PlaylistTracksStore.Action.ReloadPlaylistTracks(playlist)

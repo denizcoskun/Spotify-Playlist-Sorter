@@ -22,10 +22,10 @@ class AppStore: RxStore {
 extension AppStore {
     static let shared =
         AppStore()
-        .registerReducer(for: \.loadingState, reducer: LoadingStore.reducer)
-        .registerReducer(for: \.tracksState, reducer: TracksStore.reducer)
-        .registerReducer(for: \.playlistsState, reducer: PlaylistsStore.reducer)
-        .registerReducer(for: \.playlistTracksState, reducer: PlaylistTracksStore.reducer)
+        .registerReducer(for: \.loadingState, LoadingStore.reducer)
+        .registerReducer(for: \.tracksState, TracksStore.reducer)
+        .registerReducer(for: \.playlistsState, PlaylistsStore.reducer)
+        .registerReducer(for: \.playlistTracksState, PlaylistTracksStore.reducer)
         .registerEffects([PlaylistsEffects.getPlaylists,
                           PlaylistTracksEffects.getPlaylistTracks,
                           PlaylistTracksEffects.reorderPlaylistTrack,
@@ -35,4 +35,13 @@ extension AppStore {
 }
 
 
+
+
+func getPlaylistTracks(playlistId: String) -> (AppStore) -> AnyPublisher<[Spotify.Track], Never> {
+    return AppStore.createSelector(path: \.tracksState, path2: \.playlistTracksState, handler: { tracksState, playlistTracks -> [Spotify.Track] in
+        let trackIds = playlistTracks[playlistId] ?? []
+        let tracks = trackIds.compactMap({tracksState[$0]})
+        return tracks
+    })
+}
 

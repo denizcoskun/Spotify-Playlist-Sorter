@@ -44,7 +44,7 @@ struct SortCardListFormView: View {
                           secondaryButton: .cancel { removeSelection() })
                 }
 
-                Button(action: removeSelection) {
+                Button(action: cancelReordering) {
                     Text("Cancel")
                         .padding(EdgeInsets(top: 15, leading: 30, bottom: 15, trailing: 30))
                         .foregroundColor(.white)
@@ -79,6 +79,12 @@ struct SortCardListFormView: View {
             AppStore.shared.dispatch(action: PlaylistTracksStore.Action.ReorderPlaylistTracks(playlistModel.playlist!, tracks))
         }.sink(receiveCompletion: { _ in }, receiveValue: { _ in
         })
+    }
+    
+    func cancelReordering() {
+        sortingTracks = false
+        removeSelection()
+        AppStore.shared.dispatch(action: PlaylistTracksStore.Action.CancelReorderPlaylistTracks)
     }
 }
 

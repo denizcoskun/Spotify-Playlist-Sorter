@@ -31,11 +31,11 @@ struct PlaylistsStore {
 }
 
 
-struct PlaylistsEffects: RxStoreEffects {
-    typealias Store = AppStore
+struct PlaylistsEffects {
+
     
-    static let  getPlaylists: Effect = { state, action in
-        action.flatMap{action  -> ActionObservable in
+    static let  getPlaylists: RxStore.Effect = { state, action in
+        action.flatMap{action  -> RxStore.ActionObservable in
             if case PlaylistsStore.Action.LoadPlaylists = action {
                 return SpotifyWebApi.shared
                     .getPlaylists()

@@ -9,7 +9,7 @@ import Foundation
 import RxStore
 
 struct LoadingStore {
-    struct State: RxStoreState {
+    struct State: Equatable, Codable {
         let playlist: Bool
         let tracks: Bool
         let login: Bool
