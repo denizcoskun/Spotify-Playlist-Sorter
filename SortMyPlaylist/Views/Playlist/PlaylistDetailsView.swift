@@ -6,32 +6,46 @@
 //
 
 import SwiftUI
+import Combine
+struct SortPlaylist {
+    let by: Spotify.SortAttribute
+    var order: Spotify.SortOrder
+    static let empty = SortPlaylist(by: .none, order: .none)
+}
+
 
 struct PlaylistDetailsView: View {
     let playlist: Spotify.Playlist
-    @StateObject var playlistModel = PlaylistModel()
-    @State var tracks: [Spotify.Track] = []
-    
-    @State var tracksLoading = true
+        
     var body: some View {
         return VStack(spacing: 0) {
-            if !tracksLoading {
-                if self.tracks.count > 0 {
-                    TrackListView(playlistName: playlist.name).environmentObject(playlistModel)
+            
+            SubscriberView(AppStore.shared.loadingState) {loadingState in
+                let playlist$ = AppStore.shared.select(getPlaylistTracks(playlistId: playlist.id))
+                if !loadingState.tracks {
+                    SubscriberView(playlist$) { tracks in
+                        Group {
+                            if tracks.count > 0 {
+                                TrackListView(tracks: tracks, playlistName: playlist.name)
+                                    
+                            } else {
+                                Text("No tracks found.")
+                                    .font(.title3)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
                 } else {
-                    Text("No tracks found.").font(.title3).foregroundColor(.white)
+                    VStack {
+                        Text("Getting the tracks...").padding(.top, 100).colorInvert()
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                            .frame(width: 50, height: 50)
+                    }.font(.title3)
                 }
-            } else {
-                VStack {
-                    Text("Getting the tracks...").padding(.top, 100).colorInvert()
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
-                        .frame(width: 50, height: 50)
-                }.font(.title3)
             }
         }
         .onAppear {
-            self.playlistModel.playlist = self.playlist
             AppStore.shared.dispatch(action: PlaylistTracksStore.Action.LoadPlaylistTracks(self.playlist))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -45,21 +59,13 @@ struct PlaylistDetailsView: View {
                 startPoint: UnitPoint(x: -0.67, y: -0.68),
                 endPoint: UnitPoint(x: 1, y: 1)
             ))
-            .edgesIgnoringSafeArea(.all))
-        .onReceive(AppStore.shared.loadingState) {
-            print("tracksLoading", $0.tracks)
-            tracksLoading = $0.tracks
-        }
-        .onReceive(AppStore.shared.mergeStates(statePath: \.tracksState, statePath2: \.playlistTracksState)) {tracksState, playlistTracks in
-            self.tracks = tracksState.compactMap({$0.value})
-            let trackIds = playlistTracks[self.playlist.id] ?? []
-            let tracks = trackIds.compactMap({tracksState[$0]})
-            self.tracks = tracks
-            playlistModel.tracks = tracks
-        }
-        
+            .edgesIgnoringSafeArea(.all)
+        )
+
     }
+
 }
+
 
 struct PlaylistDetailsView_Previews: PreviewProvider {
     static var previews: some View {

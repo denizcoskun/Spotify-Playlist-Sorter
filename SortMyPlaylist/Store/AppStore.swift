@@ -22,10 +22,10 @@ class AppStore: RxStore {
 extension AppStore {
     static let shared =
         AppStore()
-        .registerReducer(for: \.loadingState, LoadingStore.reducer)
         .registerReducer(for: \.tracksState, TracksStore.reducer)
         .registerReducer(for: \.playlistsState, PlaylistsStore.reducer)
         .registerReducer(for: \.playlistTracksState, PlaylistTracksStore.reducer)
+        .registerReducer(for: \.loadingState, LoadingStore.reducer)
         .registerEffects([PlaylistsEffects.getPlaylists,
                           PlaylistTracksEffects.getPlaylistTracks,
                           PlaylistTracksEffects.reorderPlaylistTrack,
@@ -45,3 +45,6 @@ func getPlaylistTracks(playlistId: String) -> (AppStore) -> AnyPublisher<[Spotif
     })
 }
 
+func getPlaylistState(state: AppStore) -> AnyPublisher<PlaylistsStore.State,Never> {
+    return state.playlistsState.removeDuplicates().eraseToAnyPublisher()
+}

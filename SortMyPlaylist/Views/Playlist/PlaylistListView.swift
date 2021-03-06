@@ -11,17 +11,27 @@ struct PlaylistListView: View {
     let columns = [
         GridItem(.adaptive(minimum: 150, maximum: 200)),
     ]
-    @State var playlists: [Spotify.Playlist] = []
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                self.list()
+                SubscriberView(AppStore.shared.playlistsState) {playlists in
+                    if playlists.count > 0 {
+                        ForEach(playlists, id: \.self.id) { playlist in
+                            NavigationLink(
+                                destination: PlaylistDetailsView(playlist: playlist)
+                                    .edgesIgnoringSafeArea(.bottom)
+                            ) {
+                                self.card(playlist: playlist)
+                            }
+                        }
+                    } else {
+                        EmptyView()
+                    }
+                }
             }.padding(/*@START_MENU_TOKEN@*/ .all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
         }
-        .navigationBarHidden(false)
         .navigationBarTitle("Your Playlists", displayMode: .automatic)
-        .navigationBarBackButtonHidden(true)
         .frame(maxHeight: .infinity)
         .background(Rectangle()
             .fill(LinearGradient(
@@ -32,30 +42,10 @@ struct PlaylistListView: View {
                 ]),
                 startPoint: UnitPoint(x: -0.67, y: -0.68),
                 endPoint: UnitPoint(x: 1, y: 1)
-            )).edgesIgnoringSafeArea(.all))
-        .onReceive(AppStore.shared.playlistsState) {playlists in
-            self.playlists = playlists
-            print(playlists.count)
-        }
+            ))
+        .edgesIgnoringSafeArea(.all))
     }
 
-    func list() -> some View {
-        return Group {
-            if playlists.count > 0 {
-                ForEach(playlists, id: \.self.id) { playlist in
-                    NavigationLink(
-                        destination: PlaylistDetailsView(playlist: playlist).navigationBarBackButtonHidden(true)
-                            .edgesIgnoringSafeArea(.bottom)
-
-                    ) {
-                        self.card(playlist: playlist)
-                    }
-                }
-            } else {
-                EmptyView()
-            }
-        }
-    }
 
     func card(playlist: Spotify.Playlist) -> some View {
         Group {
@@ -77,7 +67,6 @@ struct PlaylistListView_Previews: PreviewProvider {
         NavigationView {
             Group {
                 PlaylistListView().background(Color.Spotify.black)
-
                 PlaylistListView().edgesIgnoringSafeArea(.all
                 ).background(Color.Spotify.black)
                     .previewLayout(PreviewLayout.fixed(width: 800, height: 320))

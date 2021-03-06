@@ -29,17 +29,15 @@ class SpotifyWebApi: ObservableObject {
         }
         set {}
     }
+    
+    var authHeader: [String: String] {
+        return ["Authorization": "Bearer " + self.token]
+    }
 
     func getAccessToken(autenticationCode: String) -> AnyPublisher<SpotifyAuthResponse, Error> {
-        
 
-
-        let url = URL(string: "https://accounts.spotify.com/api/token")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        let requestHeader = ["Content-Type": "application/x-www-form-urlencoded"]
-        request.allHTTPHeaderFields = requestHeader
-
+        let url = "https://accounts.spotify.com/api/token"
+        let header = ["Content-Type": "application/x-www-form-urlencoded"]
         let body: [String : String] = [
             "code": autenticationCode,
             "grant_type": "authorization_code",
@@ -49,11 +47,8 @@ class SpotifyWebApi: ObservableObject {
         ]
         let jsonString = body.reduce("") { "\($0)\($1.0)=\($1.1)&" }.dropLast()
         let jsonData = jsonString.data(using: .utf8, allowLossyConversion: false)!
-        request.httpBody = jsonData
-
-        return URLSession.shared.dataTaskPublisher(for: request)
-            .map { $0.data  }
-            .decode(type: SpotifyAuthResponse.self, decoder: JSONDecoder())
+        
+        return HttpClient.shared.post(SpotifyAuthResponse.self, url: url, data: jsonData, headers: header)
             .handleEvents(receiveOutput:  { response  in
                 DispatchQueue.main.async {
                     self.spotifyClient.accessToken = response.accessToken
@@ -77,10 +72,10 @@ class SpotifyWebApi: ObservableObject {
     }
 
     func getPlaylists(_ url: String = "me/playlists?limit=50") -> AnyPublisher<[Spotify.Playlist], Error> {
-        let request = httpRequest(url: url, type: .Get)
-        return URLSession.shared.dataTaskPublisher(for: request)
-            .map({$0.data})
-            .decode(type: Spotify.PlaylistsResponse.self, decoder: JSONDecoder())
+        
+        return HttpClient.shared.get(Spotify.PlaylistsResponse.self,
+                                  url: (baseUrl + url),
+                                  headers:authHeader)
             .map { $0.items }
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
@@ -91,22 +86,16 @@ class SpotifyWebApi: ObservableObject {
         let requestCount = playlist.tracks.total / maxNumberOfTracks
         let offsets = (0 ..< requestCount + 1).map { $0 * maxNumberOfTracks }
 
-        let endpoints = offsets.map { "playlists/" + playlist.id + "/tracks?offset=\($0)" }
-        let requests = endpoints.map { httpRequest(url: $0, type: .Get) }
-        return Publishers.MergeMany(requests.map({
-            URLSession.shared.dataTaskPublisher(for: $0)
-                .map {
-                    $0.data
-                }
-                .decode(type: Spotify.PlaylistItems.self, decoder: JSONDecoder())
-                .map { $0.items }
-                .map { $0.compactMap { $0.track } }
-
-                .flatMap { [self] tracks -> AnyPublisher<[Spotify.Track], Error> in
-                    getTrackAndFeatures(tracks: tracks)
-                }
-        }
-        ))
+        let endpoints: [String] = offsets.map { baseUrl + "playlists/" + playlist.id + "/tracks?offset=\($0)" }
+        return Publishers
+            .MergeMany(endpoints.map({
+                HttpClient.shared.get(Spotify.PlaylistItems.self, url: $0, headers: authHeader)
+                    .map { $0.items }
+                    .map { $0.compactMap { $0.track } }
+                    .flatMap { [self] tracks -> AnyPublisher<[Spotify.Track], Error> in
+                        getTrackAndFeatures(tracks: tracks)
+                    }
+            }))
             .collect()
             .map { $0.flatMap { $0 } }
             .receive(on: RunLoop.main)
@@ -115,14 +104,11 @@ class SpotifyWebApi: ObservableObject {
 
     func getTrackAndFeatures(tracks: [Spotify.Track]) -> AnyPublisher<[Spotify.Track], Error> {
         let ids = tracks.map { $0.id }.joined(separator: ",")
-        let request = httpRequest(url: "audio-features?ids=" + ids, type: .Get)
+        let url = baseUrl + "audio-features?ids=" + ids
         var trackDictionary = [String: Spotify.Track]()
         tracks.forEach { track in trackDictionary[track.id] = track }
-        let task = URLSession.shared.dataTaskPublisher(for: request)
         return
-            task
-                .map { $0.data }
-                .decode(type: Spotify.AudioFeaturesResponse.self, decoder: JSONDecoder())
+            HttpClient.shared.get(Spotify.AudioFeaturesResponse.self, url: url, headers: authHeader)
                 .map { data in
                     data.audioFeatures.forEach { audioFeature in
                         trackDictionary[audioFeature.id]?.audioFeature = audioFeature
@@ -166,6 +152,7 @@ class SpotifyWebApi: ObservableObject {
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
+    
 }
 
 extension SpotifyWebApi {

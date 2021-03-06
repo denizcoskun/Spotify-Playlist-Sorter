@@ -8,8 +8,9 @@
 import Combine
 import SwiftUI
 struct SortCardListView: View {
-    @EnvironmentObject var playlistModel: PlaylistModel
     @State var faceUpAttribute: Spotify.SortAttribute? = nil
+    @Binding var sortPlaylist: SortPlaylist
+
 
     var body: some View {
         ZStack {
@@ -19,7 +20,7 @@ struct SortCardListView: View {
                     ForEach(attributes, id: \.self) { sortAttribute in
                         SortCardView(
                             attribute: sortAttribute,
-                            sortPlaylist: self.$playlistModel.sortPlaylist,
+                            sortPlaylist: $sortPlaylist,
                             faceUpAttribute: $faceUpAttribute
                         )
                         .transition(.move(edge: .bottom))
@@ -33,14 +34,14 @@ struct SortCardListView: View {
                 }
             }.frame(maxWidth: .infinity)
 
-            if playlistModel.sortPlaylist.by != .none {
-                SortCardListFormView()
+            if sortPlaylist.by != .none {
+                SortCardListFormView(sortBy: $sortPlaylist)
             }
         }
 
         .background(
             Group {
-                if playlistModel.sortPlaylist.by != .none {
+                if sortPlaylist.by != .none {
                     Rectangle().fill(Color(0x343A40)).transition(.opacity)
                 } else {
                     EmptyView()
@@ -51,18 +52,18 @@ struct SortCardListView: View {
     }
 
     func isSelected(_ attribute: Spotify.SortAttribute) -> Bool {
-        playlistModel.sortPlaylist.by == attribute
+        sortPlaylist.by == attribute
     }
 
     var attributes: [Spotify.SortAttribute] {
-        if playlistModel.sortPlaylist.by != .none {
-            return [playlistModel.sortPlaylist.by]
+        if sortPlaylist.by != .none {
+            return [sortPlaylist.by]
         }
         return [.beats, .energy, .danceability, .loudness, .positivity, .length, .acoustic, .popularity]
     }
 
     func removeSelection() {
-        playlistModel.sortPlaylist = .empty
+        sortPlaylist = .empty
     }
 }
 
@@ -70,7 +71,7 @@ struct SortCardListView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Spacer()
-            SortCardListView().environmentObject(PlaylistModel())
+            SortCardListView(sortPlaylist: .constant(.empty))
         }
         .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
 

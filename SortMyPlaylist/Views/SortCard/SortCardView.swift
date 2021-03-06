@@ -116,7 +116,7 @@ struct SortCardView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Spacer()
-            SortCardListView().environmentObject(PlaylistModel())
+            SortCardListView(sortPlaylist: .constant(.empty))
                 .frame(height: 120)
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
                 .background(Rectangle().foregroundColor(Color.Spotify.darkGrey)).clipShape(RoundedRectangle(cornerRadius: 40))

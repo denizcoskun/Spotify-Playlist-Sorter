@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct TrackListView: View {
-    @State var tracks: [EnumeratedSequence<[Spotify.Track]>.Element] = []
-    @EnvironmentObject var playlistModel: PlaylistModel
+    let tracks: [Spotify.Track]
 
     let playlistName: String
+    @State var sortPlaylist = SortPlaylist(by: .none, order: .none)
+
+    var sortedTracks: [EnumeratedSequence<[Spotify.Track]>.Element] {
+        return sortPlaylist.by.sort(tracks: tracks.enumerated(), order: sortPlaylist.order)
+    }
 
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
                 VStack {
-                    ForEach(0 ..< tracks.count, id: \.self) { id in
+                    ForEach(0 ..< sortedTracks.count, id: \.self) { id in
                         TrackListItemView(
-                            id: id, track: tracks[id],
-                            showArrows: playlistModel.sortPlaylist.by != .none
+                            id: id, track: sortedTracks[id],
+                            showArrows: sortPlaylist.by != .none
                         ).padding(.all, 10)
                     }
                 }
@@ -28,13 +32,8 @@ struct TrackListView: View {
             }
             .clipped()
             .frame(maxWidth: .infinity)
-            .navigationBarHidden(false)
-            .navigationBarBackButtonHidden(true)
+            SortCardListView(sortPlaylist: $sortPlaylist)
 
-            SortCardListView()
-
-        }.onReceive(playlistModel.sortedTracks) { sortedTracks in
-            tracks = sortedTracks
         }
     }
 }
@@ -106,13 +105,14 @@ struct TrackListItemView: View {
                 )
 
         }.padding(.trailing, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        
     }
 }
 
 //
 struct TrackListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TrackListView(playlistName: "").background(Color.black)
-            .environmentObject(PlaylistModel()).edgesIgnoringSafeArea(.all)
+        TrackListView(tracks: [], playlistName: "").background(Color.black)
+            .edgesIgnoringSafeArea(.all)
     }
 }

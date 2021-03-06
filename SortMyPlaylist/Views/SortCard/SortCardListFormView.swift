@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SortCardListFormView: View {
-    @EnvironmentObject var playlistModel: PlaylistModel
+    @Binding var sortBy: SortPlaylist
     @State var sortingTracks = false
     @State var cancellable: Any?
     @State var showSuccessMessage = false
@@ -52,8 +52,8 @@ struct SortCardListFormView: View {
                 .animation(Animation.spring().delay(0.2))
                 .padding(.trailing, 10)
                 .alert(isPresented: $showSuccessMessage) {
-                    Alert(title: Text("\(playlistModel.playlist!.name)"),
-                          message: Text("Successfully sorted by \(playlistModel.sortPlaylist.by.rawValue)"),
+                    Alert(title: Text("Playlist"),
+                          message: Text("Successfully sorted by \(sortBy.by.rawValue)"),
                           dismissButton: .default(Text("Ok"), action: removeSelection))
                 }
             }
@@ -63,22 +63,22 @@ struct SortCardListFormView: View {
             .asymmetric(insertion: .move(edge: .trailing), removal: .identity)
         ).onReceive(AppStore.shared.actions) { action in
             if case PlaylistTracksStore.Action.LoadPlaylistTracksSuccess(_, _) = action {
-                playlistModel.sortPlaylist = .empty
+                sortBy = .empty
                 sortingTracks = false
             }
         }
     }
 
     func removeSelection() {
-        playlistModel.sortPlaylist = .empty
+        sortBy = .empty
     }
 
     func updatePlaylist() {
-        sortingTracks = true
-        cancellable = playlistModel.sortedTracks.first().map { tracks in
-            AppStore.shared.dispatch(action: PlaylistTracksStore.Action.ReorderPlaylistTracks(playlistModel.playlist!, tracks))
-        }.sink(receiveCompletion: { _ in }, receiveValue: { _ in
-        })
+//        sortingTracks = true
+//        cancellable = playlistModel.sortedTracks.first().map { tracks in
+//            AppStore.shared.dispatch(action: PlaylistTracksStore.Action.ReorderPlaylistTracks(playlistModel.playlist!, tracks))
+//        }.sink(receiveCompletion: { _ in }, receiveValue: { _ in
+//        })
     }
     
     func cancelReordering() {
@@ -88,8 +88,8 @@ struct SortCardListFormView: View {
     }
 }
 
-struct SortCardListFormView_Previews: PreviewProvider {
-    static var previews: some View {
-        SortCardListFormView().environmentObject(PlaylistModel())
-    }
-}
+//struct SortCardListFormView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SortCardListFormView().environmentObject(PlaylistModel())
+//    }
+//}

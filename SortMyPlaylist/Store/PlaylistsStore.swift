@@ -17,7 +17,7 @@ struct PlaylistsStore {
     enum Action: RxStoreAction {
         case LoadPlaylists,
              LoadPlaylistsSuccess([Spotify.Playlist]),
-             LoadPlaylistsFailure
+             LoadPlaylistsFailure(Error)
     }
     
     static func reducer(state: State, action: RxStoreAction) -> State {
@@ -40,7 +40,7 @@ struct PlaylistsEffects {
                 return SpotifyWebApi.shared
                     .getPlaylists()
                     .map{PlaylistsStore.Action.LoadPlaylistsSuccess($0)}
-                    .catch({ _ in Just(PlaylistsStore.Action.LoadPlaylistsFailure) })
+                    .catch({ error in Just(PlaylistsStore.Action.LoadPlaylistsFailure(error)) })
                     .eraseToAnyPublisher()
             }
             return Empty().eraseToAnyPublisher()

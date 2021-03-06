@@ -8,6 +8,23 @@
 import Foundation
 import Combine
 import RxStore
+extension Publisher {
+    typealias Failure = Never
+    public func handleAction(handler: @escaping (RxStoreAction) -> AnyPublisher<RxStoreAction?,Self.Failure>)
+    -> AnyPublisher<RxStoreAction, Self.Failure> where Output == RxStoreAction {
+        
+        return self.flatMap({action in
+            return handler(action)
+        })
+        .map{action in
+            if let a = action {
+                return a
+            }
+            return RxStoreActions.Empty
+        }.eraseToAnyPublisher()
+    }
+
+}
 
 struct PlaylistTracksStore {
     typealias State =  [String: [String]]
@@ -60,7 +77,7 @@ struct PlaylistTracksEffects {
     
 
     static let reorderPlaylistTrack: RxStore.Effect = {store, action in
-        return action.flatMap { action -> RxStore.ActionObservable in
+        return action.handleAction { action in
             if case PlaylistTracksStore.Action.ReorderPlaylistTracks(let playlist, let enumeratedTracks) = action {
                 return SpotifyWebApi.shared.updatePlaylistTrackOrders(playlistId: playlist.id, tracks: enumeratedTracks)
                     .map({_ in PlaylistTracksStore.Action.ReorderPlaylistTracksSuccess(playlist)})
@@ -76,19 +93,26 @@ struct PlaylistTracksEffects {
                     )
                     .eraseToAnyPublisher()
             }
-            return Empty().eraseToAnyPublisher()
+            return Just(nil).eraseToAnyPublisher()
         }.eraseToAnyPublisher()
     }
     
     static let reorderPlaylistTrackSuccess: RxStore.Effect = {_, action in
-        return action.map { action  in
+//        return action.map { action  in
+//            if case PlaylistTracksStore.Action.ReorderPlaylistTracksSuccess(let playlist) = action {
+//                return PlaylistTracksStore.Action.ReloadPlaylistTracks(playlist)
+//            }
+//            return RxStoreActions.Empty
+//        }.eraseToAnyPublisher()
+        return action.handleAction { action in
             if case PlaylistTracksStore.Action.ReorderPlaylistTracksSuccess(let playlist) = action {
-                return PlaylistTracksStore.Action.ReloadPlaylistTracks(playlist)
+                return Just(PlaylistTracksStore.Action.ReloadPlaylistTracks(playlist)).eraseToAnyPublisher()
             }
-            return RxStoreActions.Empty
-        }.eraseToAnyPublisher()
+            return Just(nil).eraseToAnyPublisher()
+        }
     }
 }
+
 
 
 
