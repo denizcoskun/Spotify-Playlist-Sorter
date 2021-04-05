@@ -61,12 +61,9 @@ class SpotifyWebApi: ObservableObject {
             .eraseToAnyPublisher()
     }
     
+    
     func getUser() -> AnyPublisher<Spotify.User, Error> {
-        let request = httpRequest(url: "me", type: .Get)
-        return URLSession.shared
-            .dataTaskPublisher(for: request)
-            .map { $0.data }
-            .decode(type: Spotify.User.self, decoder: JSONDecoder())
+        return HttpClient.shared.get(Spotify.User.self, url: baseUrl + "me", headers: authHeader)
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
@@ -85,8 +82,8 @@ class SpotifyWebApi: ObservableObject {
         let maxNumberOfTracks = 100
         let requestCount = playlist.tracks.total / maxNumberOfTracks
         let offsets = (0 ..< requestCount + 1).map { $0 * maxNumberOfTracks }
-
         let endpoints: [String] = offsets.map { baseUrl + "playlists/" + playlist.id + "/tracks?offset=\($0)" }
+        print(endpoints)
         return Publishers
             .MergeMany(endpoints.map({
                 HttpClient.shared.get(Spotify.PlaylistItems.self, url: $0, headers: authHeader)
@@ -119,9 +116,9 @@ class SpotifyWebApi: ObservableObject {
     }
 
     func playlistTrackReorder(playlistId: String, body: PutTrackBody) -> AnyPublisher<Bool, Error> {
-        var req = httpRequest(url: "playlists/\(playlistId)/tracks", type: .Put)
-        req.httpBody = try? JSONEncoder().encode(body)
-        return URLSession.shared.dataTaskPublisher(for: req)
+        let url = baseUrl + "playlists/\(playlistId)/tracks"
+        let data = try? JSONEncoder().encode(body)
+        return HttpClient.shared.put(url: url, data: data, headers: authHeader)
             .tryMap { output in
                 if let httpResponse = output.response as? HTTPURLResponse {
                     print("statusCode: \(httpResponse.statusCode)")
@@ -155,16 +152,7 @@ class SpotifyWebApi: ObservableObject {
     
 }
 
-extension SpotifyWebApi {
-    func httpRequest(baseUrl: String = "https://api.spotify.com/v1/", url: String, type: HttpRequestType) -> URLRequest {
-        let url = URL(string: baseUrl + url)!
-        var request = URLRequest(url: url)
-        request.httpMethod = type.rawValue
-        let token = self.token
-        request.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
-        return request
-    }
-}
+
 
 struct PutTrackBody: Codable {
     let rangeStart, rangeLength, insertBefore: Int
@@ -176,8 +164,3 @@ struct PutTrackBody: Codable {
     }
 }
 
-enum HttpRequestType: String {
-    case Get = "GET"
-    case Post = "POST"
-    case Put = "PUT"
-}

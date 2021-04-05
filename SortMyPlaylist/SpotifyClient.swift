@@ -42,25 +42,6 @@ class SpotifyClient: NSObject, ObservableObject, SPTSessionManagerDelegate, SPTA
         sessionManager.initiateSession(with: scope, options: .clientOnly)
     }
 
-//    func connect() {
-//        guard let date = self.expirationDate else {
-//            self.accessToken = ""
-//            return
-//        }
-//        if(date.timeIntervalSinceReferenceDate > Date().timeIntervalSinceReferenceDate) {
-//            appRemote.connectionParameters.accessToken = self.accessToken
-//            SPTAppRemote.checkIfSpotifyAppIsActive { isActive in
-//                if isActive {
-//                    self.appRemote.connect()
-//                } else {
-//                    self.appRemote.authorizeAndPlayURI("")
-//                }
-//            }
-//        } else {
-//            self.expirationDate = nil
-//            return
-//        }
-//    }
 
     func startSession(_ url: URL) {
         

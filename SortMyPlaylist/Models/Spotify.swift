@@ -9,7 +9,7 @@ import Foundation
 import Hue
 
 enum Spotify {
-    struct User: Codable {
+    struct User: Equatable, Codable {
         let id: String
         let displayName: String
         enum CodingKeys: String, CodingKey {
@@ -149,7 +149,7 @@ enum Spotify {
         }
     }
 
-    enum SortOrder: String {
+    enum SortOrder: String, Codable {
         case asc, dec, none
 
         func compareFn<T: Comparable>() -> (T, T) -> Bool {
@@ -183,7 +183,7 @@ enum Spotify {
         }
     }
 
-    enum SortAttribute: String, CaseIterable {
+    enum SortAttribute: String, CaseIterable, Codable {
         //        Beats Per Minute (BPM) - The tempo of the song.
         //        Energy - The energy of a song - the higher the value, the more energtic. song
         //        Danceability - The higher the value, the easier it is to dance to this song.

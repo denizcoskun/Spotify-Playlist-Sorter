@@ -10,14 +10,17 @@
 		566E13D847C4943576208404 /* Pods_Sortify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9AEC9140211658EB560DEA /* Pods_Sortify.framework */; };
 		5D24B1102585393500679554 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D24B10F2585393500679554 /* GoogleService-Info.plist */; };
 		5D25DD2B25D5C2F0006245E3 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25DD2A25D5C2F0006245E3 /* AppStore.swift */; };
-		5D25DD3025D5CDC0006245E3 /* TracksStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25DD2F25D5CDC0006245E3 /* TracksStore.swift */; };
-		5D25DD3525D5D243006245E3 /* LoadingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25DD3425D5D243006245E3 /* LoadingStore.swift */; };
-		5D25DD3D25D5D702006245E3 /* PlaylistsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25DD3C25D5D702006245E3 /* PlaylistsStore.swift */; };
 		5D3AE1C724CC4CA500A65753 /* TrackPreviewPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */; };
 		5D58BBD124BB2B110019E1B8 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58BBD024BB2B110019E1B8 /* Spotify.swift */; };
 		5D58BBD424BB35A30019E1B8 /* Hue in Frameworks */ = {isa = PBXBuildFile; productRef = 5D58BBD324BB35A30019E1B8 /* Hue */; };
 		5D58BBD824BB4E190019E1B8 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58BBD724BB4E190019E1B8 /* TrackListView.swift */; };
 		5D58BBDA24BB6AA40019E1B8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D58BBD924BB6AA40019E1B8 /* Color+Extension.swift */; };
+		5D786CF7261B2E7400BCE4E7 /* AppStore+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D786CF6261B2E7400BCE4E7 /* AppStore+User.swift */; };
+		5D786CFF261B370800BCE4E7 /* AppStore+Playlists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D786CFE261B370800BCE4E7 /* AppStore+Playlists.swift */; };
+		5D786D07261B381100BCE4E7 /* AppStore+PlaylistTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D786D06261B381100BCE4E7 /* AppStore+PlaylistTracks.swift */; };
+		5D786D0F261B39E800BCE4E7 /* AppStore+Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D786D0E261B39E800BCE4E7 /* AppStore+Tracks.swift */; };
+		5D786D17261B3A8400BCE4E7 /* AppStore+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D786D16261B3A8400BCE4E7 /* AppStore+Loading.swift */; };
+		5D786D26261B50CE00BCE4E7 /* RxStore in Frameworks */ = {isa = PBXBuildFile; productRef = 5D786D25261B50CE00BCE4E7 /* RxStore */; };
 		5D8CC59724C2F2B700361C21 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CC59624C2F2B700361C21 /* CGPoint+Extensions.swift */; };
 		5D8CC59924C2FB6E00361C21 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CC59824C2FB6E00361C21 /* Collection+Extensions.swift */; };
 		5D9307F324B9CB000075AD79 /* SortMyPlaylistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9307F224B9CB000075AD79 /* SortMyPlaylistApp.swift */; };
@@ -35,13 +38,10 @@
 		5D95280B24BA0F43003D6CEF /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5D95280A24BA0F43003D6CEF /* URLImage */; };
 		5D95281124BA1818003D6CEF /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95281024BA1818003D6CEF /* RemoteImageView.swift */; };
 		5D95281324BA352E003D6CEF /* SpotifyWebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95281224BA352E003D6CEF /* SpotifyWebApi.swift */; };
-		5D95281524BA5747003D6CEF /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95281424BA5747003D6CEF /* UINavigationController+Extension.swift */; };
 		5DAEB83F24D5E52C007AD9C6 /* SortCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB83E24D5E52C007AD9C6 /* SortCardView.swift */; };
 		5DAEB84124D5E550007AD9C6 /* SortCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB84024D5E550007AD9C6 /* SortCardListView.swift */; };
 		5DAEB84524D5E63F007AD9C6 /* SortCardListFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEB84424D5E63F007AD9C6 /* SortCardListFormView.swift */; };
 		5DB3061025DC5018007767C6 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB3060F25DC5018007767C6 /* HttpClient.swift */; };
-		5DB9F81825D8626300E093DE /* RxStore in Frameworks */ = {isa = PBXBuildFile; productRef = 5DB9F81725D8626300E093DE /* RxStore */; };
-		5DB9F86E25D86AAC00E093DE /* PlaylistTracksStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9F86D25D86AAC00E093DE /* PlaylistTracksStore.swift */; };
 		5DD6C23125F3FA4200B2FA8A /* SubscriberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD6C23025F3FA4200B2FA8A /* SubscriberView.swift */; };
 		5DE8B98725868B16009599A7 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 5DE8B98625868B16009599A7 /* BetterSafariView */; };
 		5DE8B98C258691C1009599A7 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE8B98B258691C1009599A7 /* URL+Extension.swift */; };
@@ -72,13 +72,15 @@
 		2ADF7502C684C8EE5139CBDD /* Pods-Sortify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sortify.debug.xcconfig"; path = "Target Support Files/Pods-Sortify/Pods-Sortify.debug.xcconfig"; sourceTree = "<group>"; };
 		5D24B10F2585393500679554 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D25DD2A25D5C2F0006245E3 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
-		5D25DD2F25D5CDC0006245E3 /* TracksStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksStore.swift; sourceTree = "<group>"; };
-		5D25DD3425D5D243006245E3 /* LoadingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStore.swift; sourceTree = "<group>"; };
-		5D25DD3C25D5D702006245E3 /* PlaylistsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsStore.swift; sourceTree = "<group>"; };
 		5D3AE1C624CC4CA500A65753 /* TrackPreviewPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPreviewPlayer.swift; sourceTree = "<group>"; };
 		5D58BBD024BB2B110019E1B8 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		5D58BBD724BB4E190019E1B8 /* TrackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
 		5D58BBD924BB6AA40019E1B8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		5D786CF6261B2E7400BCE4E7 /* AppStore+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStore+User.swift"; sourceTree = "<group>"; };
+		5D786CFE261B370800BCE4E7 /* AppStore+Playlists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStore+Playlists.swift"; sourceTree = "<group>"; };
+		5D786D06261B381100BCE4E7 /* AppStore+PlaylistTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStore+PlaylistTracks.swift"; sourceTree = "<group>"; };
+		5D786D0E261B39E800BCE4E7 /* AppStore+Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStore+Tracks.swift"; sourceTree = "<group>"; };
+		5D786D16261B3A8400BCE4E7 /* AppStore+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStore+Loading.swift"; sourceTree = "<group>"; };
 		5D8CC59624C2F2B700361C21 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		5D8CC59824C2FB6E00361C21 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		5D9307EF24B9CB000075AD79 /* Sortify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sortify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,12 +104,10 @@
 		5D95280724BA0B5E003D6CEF /* PlaylistDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailsView.swift; sourceTree = "<group>"; };
 		5D95281024BA1818003D6CEF /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		5D95281224BA352E003D6CEF /* SpotifyWebApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyWebApi.swift; sourceTree = "<group>"; };
-		5D95281424BA5747003D6CEF /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		5DAEB83E24D5E52C007AD9C6 /* SortCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardView.swift; sourceTree = "<group>"; };
 		5DAEB84024D5E550007AD9C6 /* SortCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardListView.swift; sourceTree = "<group>"; };
 		5DAEB84424D5E63F007AD9C6 /* SortCardListFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortCardListFormView.swift; sourceTree = "<group>"; };
 		5DB3060F25DC5018007767C6 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		5DB9F86D25D86AAC00E093DE /* PlaylistTracksStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTracksStore.swift; sourceTree = "<group>"; };
 		5DD6C23025F3FA4200B2FA8A /* SubscriberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberView.swift; sourceTree = "<group>"; };
 		5DE8B98B258691C1009599A7 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		5DE8B998258692CB009599A7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB9F81825D8626300E093DE /* RxStore in Frameworks */,
+				5D786D26261B50CE00BCE4E7 /* RxStore in Frameworks */,
 				5D58BBD424BB35A30019E1B8 /* Hue in Frameworks */,
 				5D95280B24BA0F43003D6CEF /* URLImage in Frameworks */,
 				5D93082024B9CC050075AD79 /* SpotifyiOS.framework in Frameworks */,
@@ -160,11 +160,12 @@
 		5D25DD1625D5C19C006245E3 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				5D25DD3C25D5D702006245E3 /* PlaylistsStore.swift */,
+				5D786CF6261B2E7400BCE4E7 /* AppStore+User.swift */,
+				5D786D16261B3A8400BCE4E7 /* AppStore+Loading.swift */,
+				5D786D0E261B39E800BCE4E7 /* AppStore+Tracks.swift */,
+				5D786D06261B381100BCE4E7 /* AppStore+PlaylistTracks.swift */,
+				5D786CFE261B370800BCE4E7 /* AppStore+Playlists.swift */,
 				5D25DD2A25D5C2F0006245E3 /* AppStore.swift */,
-				5D25DD2F25D5CDC0006245E3 /* TracksStore.swift */,
-				5D25DD3425D5D243006245E3 /* LoadingStore.swift */,
-				5DB9F86D25D86AAC00E093DE /* PlaylistTracksStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -295,7 +296,6 @@
 		5DFA95F124D5FB200048D0F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5D95281424BA5747003D6CEF /* UINavigationController+Extension.swift */,
 				5D8CC59824C2FB6E00361C21 /* Collection+Extensions.swift */,
 				5DEECDC224D6D34800E6EEE9 /* EnumeratedSequence+Sorted.swift */,
 				5D58BBD924BB6AA40019E1B8 /* Color+Extension.swift */,
@@ -344,7 +344,7 @@
 				5D95280A24BA0F43003D6CEF /* URLImage */,
 				5D58BBD324BB35A30019E1B8 /* Hue */,
 				5DE8B98625868B16009599A7 /* BetterSafariView */,
-				5DB9F81725D8626300E093DE /* RxStore */,
+				5D786D25261B50CE00BCE4E7 /* RxStore */,
 			);
 			productName = SortMyPlaylist;
 			productReference = 5D9307EF24B9CB000075AD79 /* Sortify.app */;
@@ -421,7 +421,7 @@
 				5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */,
 				5D58BBD224BB35A30019E1B8 /* XCRemoteSwiftPackageReference "Hue" */,
 				5DE8B98525868B16009599A7 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
-				5DB9F81625D8626200E093DE /* XCRemoteSwiftPackageReference "RxStore" */,
+				5D786D24261B50CE00BCE4E7 /* XCRemoteSwiftPackageReference "RxStore" */,
 			);
 			productRefGroup = 5D9307F024B9CB000075AD79 /* Products */;
 			projectDirPath = "";
@@ -513,20 +513,21 @@
 				5D58BBDA24BB6AA40019E1B8 /* Color+Extension.swift in Sources */,
 				5D95281124BA1818003D6CEF /* RemoteImageView.swift in Sources */,
 				5DF229D124E972910089519C /* SpotifyAuthService.swift in Sources */,
-				5D25DD3D25D5D702006245E3 /* PlaylistsStore.swift in Sources */,
-				5D25DD3025D5CDC0006245E3 /* TracksStore.swift in Sources */,
+				5D786CFF261B370800BCE4E7 /* AppStore+Playlists.swift in Sources */,
 				5D8CC59724C2F2B700361C21 /* CGPoint+Extensions.swift in Sources */,
 				5D95281324BA352E003D6CEF /* SpotifyWebApi.swift in Sources */,
 				5D93082324B9DEA30075AD79 /* AuthenticatedView.swift in Sources */,
+				5D786D0F261B39E800BCE4E7 /* AppStore+Tracks.swift in Sources */,
+				5D786CF7261B2E7400BCE4E7 /* AppStore+User.swift in Sources */,
 				5DB3061025DC5018007767C6 /* HttpClient.swift in Sources */,
 				5DE8B999258692CB009599A7 /* LoginViewModel.swift in Sources */,
 				5DE8B98C258691C1009599A7 /* URL+Extension.swift in Sources */,
 				5DD6C23125F3FA4200B2FA8A /* SubscriberView.swift in Sources */,
-				5D25DD3525D5D243006245E3 /* LoadingStore.swift in Sources */,
-				5DB9F86E25D86AAC00E093DE /* PlaylistTracksStore.swift in Sources */,
+				5D786D07261B381100BCE4E7 /* AppStore+PlaylistTracks.swift in Sources */,
 				5DEEE1F624C222CD00F761DD /* RadarChartView.swift in Sources */,
 				5DAEB84524D5E63F007AD9C6 /* SortCardListFormView.swift in Sources */,
 				5D95280824BA0B5E003D6CEF /* PlaylistDetailsView.swift in Sources */,
+				5D786D17261B3A8400BCE4E7 /* AppStore+Loading.swift in Sources */,
 				5D58BBD124BB2B110019E1B8 /* Spotify.swift in Sources */,
 				5D9307F524B9CB000075AD79 /* ContentView.swift in Sources */,
 				5D9307F324B9CB000075AD79 /* SortMyPlaylistApp.swift in Sources */,
@@ -536,7 +537,6 @@
 				5D93081E24B9CB1D0075AD79 /* SpotifyClient.swift in Sources */,
 				5D58BBD824BB4E190019E1B8 /* TrackListView.swift in Sources */,
 				5D25DD2B25D5C2F0006245E3 /* AppStore.swift in Sources */,
-				5D95281524BA5747003D6CEF /* UINavigationController+Extension.swift in Sources */,
 				5DAEB84124D5E550007AD9C6 /* SortCardListView.swift in Sources */,
 				5D8CC59924C2FB6E00361C21 /* Collection+Extensions.swift in Sources */,
 			);
@@ -884,20 +884,20 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		5D786D24261B50CE00BCE4E7 /* XCRemoteSwiftPackageReference "RxStore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/denizcoskun/RxStore";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:dmytro-anokhin/url-image.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.9.18;
-			};
-		};
-		5DB9F81625D8626200E093DE /* XCRemoteSwiftPackageReference "RxStore" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/denizcoskun/RxStore";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.2;
 			};
 		};
 		5DE8B98525868B16009599A7 /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
@@ -916,15 +916,15 @@
 			package = 5D58BBD224BB35A30019E1B8 /* XCRemoteSwiftPackageReference "Hue" */;
 			productName = Hue;
 		};
+		5D786D25261B50CE00BCE4E7 /* RxStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D786D24261B50CE00BCE4E7 /* XCRemoteSwiftPackageReference "RxStore" */;
+			productName = RxStore;
+		};
 		5D95280A24BA0F43003D6CEF /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5D95280924BA0F43003D6CEF /* XCRemoteSwiftPackageReference "url-image" */;
 			productName = URLImage;
-		};
-		5DB9F81725D8626300E093DE /* RxStore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5DB9F81625D8626200E093DE /* XCRemoteSwiftPackageReference "RxStore" */;
-			productName = RxStore;
 		};
 		5DE8B98625868B16009599A7 /* BetterSafariView */ = {
 			isa = XCSwiftPackageProductDependency;

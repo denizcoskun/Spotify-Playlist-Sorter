@@ -14,6 +14,9 @@ struct SortCardListFormView: View {
     @State var showSuccessMessage = false
     @State var confirmMessage = false
     @State var animate = false
+    let onUpdate: () -> ()
+    let onCancel: () -> ()
+    
     var body: some View {
         HStack {
             Spacer()
@@ -27,9 +30,7 @@ struct SortCardListFormView: View {
                         } else {
                             Image(systemName: "icloud.and.arrow.up")
                         }
-
                         Text(sortingTracks ? "Saving" : "Save   ").font(.title3)
-                        
                     }
                 }
                 .disabled(sortingTracks)
@@ -56,14 +57,16 @@ struct SortCardListFormView: View {
                           message: Text("Successfully sorted by \(sortBy.by.rawValue)"),
                           dismissButton: .default(Text("Ok"), action: removeSelection))
                 }
+
             }
         }
+
         .animation(.spring())
         .transition(
             .asymmetric(insertion: .move(edge: .trailing), removal: .identity)
         ).onReceive(AppStore.shared.actions) { action in
-            if case PlaylistTracksStore.Action.LoadPlaylistTracksSuccess(_, _) = action {
-                sortBy = .empty
+            if action is AppStore.PlaylistTracks.Action.LoadPlaylistTracksSuccess {
+                showSuccessMessage = true
                 sortingTracks = false
             }
         }
@@ -74,17 +77,14 @@ struct SortCardListFormView: View {
     }
 
     func updatePlaylist() {
-//        sortingTracks = true
-//        cancellable = playlistModel.sortedTracks.first().map { tracks in
-//            AppStore.shared.dispatch(action: PlaylistTracksStore.Action.ReorderPlaylistTracks(playlistModel.playlist!, tracks))
-//        }.sink(receiveCompletion: { _ in }, receiveValue: { _ in
-//        })
+        sortingTracks = true
+        onUpdate()
     }
     
     func cancelReordering() {
         sortingTracks = false
         removeSelection()
-        AppStore.shared.dispatch(action: PlaylistTracksStore.Action.CancelReorderPlaylistTracks)
+        onCancel()
     }
 }
 

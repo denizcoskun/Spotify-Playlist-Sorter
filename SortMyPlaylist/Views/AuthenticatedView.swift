@@ -11,7 +11,8 @@ struct AuthenticatedView: View {
     var body: some View {
         PlaylistListView().onAppear(
             perform: {
-                AppStore.shared.dispatch(action: PlaylistsStore.Action.LoadPlaylists)
+                AppStore.shared.dispatch(action: AppStore.User.Action.LoadUser())
+                AppStore.shared.dispatch(action: AppStore.Playlists.Action.LoadPlaylists())
             }
         )
     }

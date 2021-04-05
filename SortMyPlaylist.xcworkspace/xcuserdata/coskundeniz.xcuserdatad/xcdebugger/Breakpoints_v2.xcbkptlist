@@ -335,86 +335,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5A46EF08-6C8A-4700-A061-E8CCB88BAB1F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SortMyPlaylist/Views/SortCard/SortCardListFormView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "updatePlaylist()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E760EC00-D14A-47E3-92AD-8E86BD968FB1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SortMyPlaylist/Store/PlaylistTracksStore.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "reorderPlaylistTrackSuccess"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9ADA3A75-027E-47CB-9922-D3ECF9610AC1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SortMyPlaylist/Store/AppStore.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "getPlaylistTracks(playlistId:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FD2EA356-FF60-4176-AD72-6C33DC21341A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SortMyPlaylist/Store/AppStore.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "getPlaylistTracks(playlistId:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "59478A1E-6B2F-44AA-ADE1-D9DAD5DF4030"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SortMyPlaylist/Store/AppStore.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "getPlaylistState(state:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "63CC9997-CE7A-4655-B16D-718D1EDDAAF1"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -422,8 +342,8 @@
             filePath = "SortMyPlaylist/SpotifyWebApi.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "getPlaylists(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -438,8 +358,8 @@
             filePath = "SortMyPlaylist/Store/PlaylistsStore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "reducer(state:action:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -454,8 +374,8 @@
             filePath = "SortMyPlaylist/SpotifyWebApi.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "getPlaylists(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -470,8 +390,8 @@
             filePath = "SortMyPlaylist/SpotifyWebApi.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "getPlaylists(_:)"
             landmarkType = "7">
             <Locations>
@@ -504,6 +424,148 @@
                   startingLineNumber = "75"
                   endingLineNumber = "75"
                   offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F3ECBDD-BCCF-49B6-8F0B-59E247036812"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Views/SortCard/SortCardListFormView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3507508-AD4E-44CE-A0A9-A39E037C1599"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Views/SortCard/SortCardListFormView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "updatePlaylist()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FB9E502-67D8-4EFA-9772-7B123F661064"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Views/Playlist/PlaylistDetailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19215E34-F2C6-46FD-8D53-4A99EBE25BB7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Library/Developer/Xcode/DerivedData/SortMyPlaylist-hfsnnvllavnfszbdcfxehcyhdshi/SourcePackages/checkouts/RxStore/Sources/RxStore/RxStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "RxStore"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEFBC97E-DCB7-4C5D-A792-4C7FB9EA3E69"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Library/Developer/Xcode/DerivedData/SortMyPlaylist-hfsnnvllavnfszbdcfxehcyhdshi/SourcePackages/checkouts/RxStore/Sources/RxStore/RxStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AAEF1A0F-667A-497E-9D16-500E23BCA36E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Library/Developer/Xcode/DerivedData/SortMyPlaylist-hfsnnvllavnfszbdcfxehcyhdshi/SourcePackages/checkouts/RxStore/Sources/RxStore/RxStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "RxStore"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2210538-FBD3-4C11-B708-CCF657E43FD3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SortMyPlaylist/Store/AppStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "getOwnPlaylists()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "E2210538-FBD3-4C11-B708-CCF657E43FD3 - cfbd362c7398ec16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Sortify.Spotify.User&gt;, Swift.Array&lt;Sortify.Spotify.Playlist&gt;) -&gt; Swift.Array&lt;Sortify.Spotify.Playlist&gt; in Sortify.getOwnPlaylists() -&gt; (Sortify.AppStore) -&gt; Combine.AnyPublisher&lt;Swift.Array&lt;Sortify.Spotify.Playlist&gt;, Swift.Never&gt;"
+                  moduleName = "Sortify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coskundeniz/SortMyPlaylist/SortMyPlaylist/Store/AppStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "303">
+               </Location>
+               <Location
+                  uuid = "E2210538-FBD3-4C11-B708-CCF657E43FD3 - f1e2a510f58d9c0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Sortify.Spotify.Playlist) -&gt; Swift.Bool in closure #1 (Swift.Optional&lt;Sortify.Spotify.User&gt;, Swift.Array&lt;Sortify.Spotify.Playlist&gt;) -&gt; Swift.Array&lt;Sortify.Spotify.Playlist&gt; in Sortify.getOwnPlaylists() -&gt; (Sortify.AppStore) -&gt; Combine.AnyPublisher&lt;Swift.Array&lt;Sortify.Spotify.Playlist&gt;, Swift.Never&gt;"
+                  moduleName = "Sortify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/coskundeniz/SortMyPlaylist/SortMyPlaylist/Store/AppStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "47">
                </Location>
             </Locations>
          </BreakpointContent>

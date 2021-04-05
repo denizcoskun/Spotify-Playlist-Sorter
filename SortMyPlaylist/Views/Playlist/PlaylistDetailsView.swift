@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Combine
-struct SortPlaylist {
+struct SortPlaylist: Equatable, Codable {
     let by: Spotify.SortAttribute
     var order: Spotify.SortOrder
     static let empty = SortPlaylist(by: .none, order: .none)
@@ -16,17 +16,18 @@ struct SortPlaylist {
 
 struct PlaylistDetailsView: View {
     let playlist: Spotify.Playlist
-        
+    let loadingState =  AppStore.shared.loadingState
+    var playlist$: AnyPublisher<[Spotify.Track],Never> {
+        AppStore.shared.select(getPlaylistTracks(playlistId: playlist.id))
+    }
     var body: some View {
         return VStack(spacing: 0) {
-            
             SubscriberView(AppStore.shared.loadingState) {loadingState in
-                let playlist$ = AppStore.shared.select(getPlaylistTracks(playlistId: playlist.id))
-                if !loadingState.tracks {
-                    SubscriberView(playlist$) { tracks in
+                SubscriberView(playlist$) { tracks in
+                    if !loadingState.tracks || tracks.count > 0 {
                         Group {
                             if tracks.count > 0 {
-                                TrackListView(tracks: tracks, playlistName: playlist.name)
+                                TrackListView(tracks: tracks, playlist: playlist)
                                     
                             } else {
                                 Text("No tracks found.")
@@ -34,19 +35,21 @@ struct PlaylistDetailsView: View {
                                     .foregroundColor(.white)
                             }
                         }
+                    } else {
+                        VStack {
+                            Text("Getting the tracks...").padding(.top, 100).colorInvert()
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                                .frame(width: 50, height: 50)
+                        }.font(.title3)
                     }
-                } else {
-                    VStack {
-                        Text("Getting the tracks...").padding(.top, 100).colorInvert()
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
-                            .frame(width: 50, height: 50)
-                    }.font(.title3)
+                    
                 }
+                
             }
         }
         .onAppear {
-            AppStore.shared.dispatch(action: PlaylistTracksStore.Action.LoadPlaylistTracks(self.playlist))
+            AppStore.shared.dispatch(action: AppStore.PlaylistTracks.Action.LoadPlaylistTracks(payload: self.playlist))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Rectangle()

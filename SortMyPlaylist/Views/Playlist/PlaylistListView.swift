@@ -15,7 +15,7 @@ struct PlaylistListView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                SubscriberView(AppStore.shared.playlistsState) {playlists in
+                SubscriberView(AppStore.shared.select(getOwnPlaylists())) {playlists in
                     if playlists.count > 0 {
                         ForEach(playlists, id: \.self.id) { playlist in
                             NavigationLink(
@@ -25,8 +25,6 @@ struct PlaylistListView: View {
                                 self.card(playlist: playlist)
                             }
                         }
-                    } else {
-                        EmptyView()
                     }
                 }
             }.padding(/*@START_MENU_TOKEN@*/ .all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)

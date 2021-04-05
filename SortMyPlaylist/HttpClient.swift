@@ -68,4 +68,16 @@ final class HttpClient {
             .decode(type: T.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+    
+    func put(url: String, data: Data?, headers: [String: String] = [:]) -> HttpResponse {
+        let request = makeRequest(url: url, httpMethod:"PUT", httpBody: data)
+        return self.send(request: request, headers: headers)
+    }
+    
+    func put<T: Decodable>(_ type: T.Type, url: String, data: Data, headers: [String: String]=[:]) -> AnyPublisher<T,Error> {
+        let request = makeRequest(url: url, httpMethod:"PUT", httpBody: data)
+        return self.send(request: request, headers: headers).map({$0.data})
+            .decode(type: T.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
 }

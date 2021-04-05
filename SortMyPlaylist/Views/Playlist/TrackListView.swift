@@ -10,7 +10,7 @@ import SwiftUI
 struct TrackListView: View {
     let tracks: [Spotify.Track]
 
-    let playlistName: String
+    let playlist: Spotify.Playlist
     @State var sortPlaylist = SortPlaylist(by: .none, order: .none)
 
     var sortedTracks: [EnumeratedSequence<[Spotify.Track]>.Element] {
@@ -28,13 +28,21 @@ struct TrackListView: View {
                         ).padding(.all, 10)
                     }
                 }
-                .navigationBarTitle(playlistName, displayMode: .automatic)
+                .navigationBarTitle(playlist.name, displayMode: .automatic)
             }
             .clipped()
             .frame(maxWidth: .infinity)
-            SortCardListView(sortPlaylist: $sortPlaylist)
+            SortCardListView(sortPlaylist: $sortPlaylist, onUpdate: updatePlaylist, onCancel: onCancel)
 
         }
+    }
+    
+    func updatePlaylist() {
+        AppStore.shared.dispatch(action: AppStore.PlaylistTracks.Action.ReorderPlaylistTracks(playlist: self.playlist, tracks: self.sortedTracks))
+    }
+    
+    func onCancel() {
+        AppStore.shared.dispatch(action: AppStore.PlaylistTracks.Action.CancelReorderPlaylistTracks(payload: self.playlist))
     }
 }
 
@@ -112,7 +120,7 @@ struct TrackListItemView: View {
 //
 struct TrackListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TrackListView(tracks: [], playlistName: "").background(Color.black)
+        TrackListView(tracks: [], playlist: MockPlaylist).background(Color.black)
             .edgesIgnoringSafeArea(.all)
     }
 }

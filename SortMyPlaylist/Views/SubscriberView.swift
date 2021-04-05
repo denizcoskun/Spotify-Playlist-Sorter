@@ -45,6 +45,6 @@ struct SubscriberView<Publisher: Combine.Publisher, Content: View, InitialConten
 
 struct SubscriberView_Previews: PreviewProvider {
     static var previews: some View {
-        SubscriberView(Just(0)) { _ in Text("1") }
+        return SubscriberView(Just(0)) { _ in Text("1") }
     }
 }

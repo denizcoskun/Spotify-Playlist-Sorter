@@ -10,6 +10,8 @@ import SwiftUI
 struct SortCardListView: View {
     @State var faceUpAttribute: Spotify.SortAttribute? = nil
     @Binding var sortPlaylist: SortPlaylist
+    let onUpdate: () -> ()
+    let onCancel: () -> ()
 
 
     var body: some View {
@@ -35,7 +37,7 @@ struct SortCardListView: View {
             }.frame(maxWidth: .infinity)
 
             if sortPlaylist.by != .none {
-                SortCardListFormView(sortBy: $sortPlaylist)
+                SortCardListFormView(sortBy: $sortPlaylist, onUpdate: onUpdate, onCancel: onCancel)
             }
         }
 
@@ -71,7 +73,7 @@ struct SortCardListView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Spacer()
-            SortCardListView(sortPlaylist: .constant(.empty))
+            SortCardListView(sortPlaylist: .constant(.empty), onUpdate: {}, onCancel: {})
         }
         .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
 
